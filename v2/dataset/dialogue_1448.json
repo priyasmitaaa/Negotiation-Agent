@@ -1,0 +1,444 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1448",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Refurbished Amazon Fire Tablet 10",
+      "condition": "good",
+      "category": "budget_electronics"
+    },
+    "pricing": {
+      "fair_value": 65,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 69,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 75,
+      "anchor_range_max": 88,
+      "fv_min": 58,
+      "fv_max": 72,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "parent",
+      "buyer_age": 38,
+      "urgency": "moderate",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 45,
+      "range_id": "1-10",
+      "scenario_label": "parent_refurb_tablet_budget",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 65,
+        "buyer_first_offer": 60,
+        "buyer_last_offer": 65,
+        "final_price": 72
+      },
+      "original_latent_facts": {
+        "buyer_profile": "parent",
+        "buyer_age": 38,
+        "budget_cap": 70,
+        "urgency": "moderate",
+        "knowledge_level": "low",
+        "product": "Refurbished Amazon Fire Tablet 10",
+        "condition": "good",
+        "platform": "local_electronics_shop",
+        "seller_type": "refurbishment_store",
+        "context": "child needs device for remote learning"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hi, I'm interested in this Fire Tablet. I think $85 is a fair price for a good condition one.",
+      "price_offered": 85,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85
+        ],
+        "anchor_price": 85,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "eager",
+          "optimistic"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The speaker's high-pitched, slightly fast-paced voice conveys eagerness and optimism.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! Thanks for your offer. The price we're asking is $69. Let me know your thoughts.",
+      "price_offered": 69,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85
+        ],
+        "anchor_price": 85,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "friendly"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A bright, cheerful tone and quick pace create a friendly and welcoming atmosphere.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Hmm, I see. I can go down to $80, but I'm looking for a good deal.",
+      "price_offered": 80,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80
+        ],
+        "anchor_price": 85,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "thoughtful",
+          "flexible"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "A thoughtful 'hmm' followed by a calm, measured counter-offer indicates flexibility.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the fair market price for this model in good condition is $65. You don't need to pay more than that.",
+      "price_offered": 65,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80
+        ],
+        "anchor_price": 85,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "informative",
+          "helpful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a helpful, informative tone to introduce a lower price point.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, I didn't realize that. Why is it lower than I expected?",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80
+        ],
+        "anchor_price": 85,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "curious"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "An initial 'Oh' of surprise is followed by a question with a genuinely curious inflection.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I understand it can be surprising. We price our items based on current market conditions to ensure you get a good value.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80
+        ],
+        "anchor_price": 85,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "patient",
+          "professional"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A calm, patient, and even-paced delivery provides a reassuring explanation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Okay, if $65 is fair, then that works for me. I need it soon for my kid.",
+      "price_offered": 65,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80,
+          65
+        ],
+        "anchor_price": 85,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "agreeable",
+          "decisive",
+          "rushed"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker agrees quickly and decisively, with a slightly rushed tone indicating a desire to finalize.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Great choice. It's a reliable tablet, and I'm sure your kid will enjoy it.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80,
+          65
+        ],
+        "anchor_price": 85,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "enthusiastic",
+          "affirming",
+          "warm"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker uses an enthusiastic and warm tone to affirm the buyer's decision.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Thanks for the information. Let's finalize it at $65 then.",
+      "price_offered": 65,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80,
+          65,
+          65
+        ],
+        "anchor_price": 85,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "appreciative",
+          "efficient"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A clear, pleasant tone conveys appreciation and an efficient desire to conclude the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Absolutely. $65 is the price we can proceed with.",
+      "price_offered": 65,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80,
+          65,
+          65
+        ],
+        "anchor_price": 85,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "confident",
+          "confirming",
+          "professional"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The clear, confident delivery of 'Absolutely' provides a strong, professional confirmation of the final price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Great, I'll take it. Thank you!",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80,
+          65,
+          65
+        ],
+        "anchor_price": 85,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "happy",
+          "grateful"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The high pitch and cheerful delivery of 'Great' and 'Thank you!' convey genuine happiness with the outcome.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "You're welcome! $65 it is. Consider it sold.",
+      "price_offered": 65,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          85,
+          80,
+          65,
+          65
+        ],
+        "anchor_price": 85,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "playful",
+          "satisfied"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The sing-song quality and exaggerated intonation make the closing sound playful and very happy.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 85,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.75
+  },
+  "cl": 3,
+  "final_price": 65
+}

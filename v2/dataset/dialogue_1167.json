@@ -1,0 +1,455 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1167",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "JBL Tune 510BT Wireless Headphones",
+      "condition": "new",
+      "category": "audio_device"
+    },
+    "pricing": {
+      "fair_value": 35,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 37,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 40,
+      "anchor_range_max": 47,
+      "fv_min": 32,
+      "fv_max": 38,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "retiree",
+      "buyer_age": 67,
+      "urgency": "low",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 37,
+      "range_id": "1-10",
+      "scenario_label": "senior_audio_low_urgency",
+      "original_labels": {
+        "vulnerability": "low",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 35,
+        "buyer_first_offer": 32,
+        "buyer_last_offer": 35,
+        "final_price": 38
+      },
+      "original_latent_facts": {
+        "buyer_profile": "retiree",
+        "buyer_age": 67,
+        "budget_cap": 35,
+        "urgency": "low",
+        "knowledge_level": "very_low",
+        "product": "JBL Tune 510BT Wireless Headphones",
+        "condition": "new",
+        "platform": "online retailer",
+        "seller_type": "store_overstock",
+        "context": "listening to audiobooks"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hello, I like these JBL headphones. I'm thinking $45 would be a fair price for them.",
+      "price_offered": 45,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "straightforward"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker uses a steady, even tone to make his initial offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hi there! Thanks for your interest. Our asking price is $37. It's a good deal for brand new headphones.",
+      "price_offered": 37,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "friendly",
+          "eager"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker has a bright, high-pitched, and slightly fast-paced delivery.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Hmm, I see. How about $42? I think that's still reasonable.",
+      "price_offered": 42,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "thoughtful",
+          "hesitant"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The utterance begins with a thoughtful \"Hmm\" and a slower pace, suggesting consideration.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate your offer, but let me be honest with you. The fair market value for these headphones is $35. You don't need to pay more than that.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "sincere",
+          "reassuring",
+          "helpful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a soft, breathy tone, creating a sense of sharing helpful information.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, I see. Is there something wrong with them that you're offering them for less than I thought?",
+      "price_offered": 40,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "suspicious",
+          "confused"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "A drawn-out \"Oh\" and a shift to a higher, questioning pitch indicates surprise followed by suspicion.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "Not at all, these are in perfect condition. I just want to ensure you get a fair price.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "calm",
+          "sincere"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker maintains a very steady, calm, and even-paced delivery to sound reassuring.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, I trust your judgment. Let me consider it.",
+      "price_offered": 38,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40,
+          38
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "accepting",
+          "thoughtful",
+          "hesitant"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The voice trails off slightly at the end of the phrase, indicating he is still considering the offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Take your time. Rest assured, $35 is already a fair market price.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40,
+          38
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "confident",
+          "encouraging",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker places clear emphasis and uses a firm, steady tone on \"Rest assured\" to convey confidence.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, if $35 is the right price, I think I'm okay with that.",
+      "price_offered": 36,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40,
+          38,
+          36
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "A slow pace and a slight audible breath before the final agreement suggest resignation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Glad to hear that! I assure you it's a great deal.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40,
+          38,
+          36
+        ],
+        "anchor_price": 45,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "relieved",
+          "cheerful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A bright, upward inflection and a slight chuckle at the start indicate relief and pleasure.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Let's go with $35 then. Thanks for being straightforward.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40,
+          38,
+          36,
+          35
+        ],
+        "anchor_price": 45,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "decisive",
+          "appreciative"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is clear and firm, indicating a final decision has been made.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great! Let's finalize the deal at $35. Thank you for your business.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          45,
+          42,
+          40,
+          38,
+          36,
+          35
+        ],
+        "anchor_price": 45,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "professional",
+          "polite"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The tone is warm but formal, concluding the transaction in a professional manner.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 45,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.7
+  },
+  "cl": 3,
+  "final_price": 35
+}

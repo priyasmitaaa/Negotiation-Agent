@@ -1,0 +1,447 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1370",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Universal Laptop Charger 65W",
+      "condition": "new",
+      "category": "accessory"
+    },
+    "pricing": {
+      "fair_value": 28,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 30,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 32,
+      "anchor_range_max": 38,
+      "fv_min": 25,
+      "fv_max": 31,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "college student",
+      "buyer_age": 20,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 42,
+      "range_id": "21-30",
+      "scenario_label": "college_charger_high_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 28,
+        "buyer_first_offer": 35,
+        "buyer_last_offer": 42,
+        "final_price": 48
+      },
+      "original_latent_facts": {
+        "buyer_profile": "college student",
+        "buyer_age": 20,
+        "budget_cap": 30,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "Universal Laptop Charger 65W",
+        "condition": "new",
+        "platform": "in_store",
+        "seller_type": "campus_bookstore",
+        "context": "exam tomorrow, laptop battery failing"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hi, I really need a charger today. I'm willing to pay $35 for it.",
+      "price_offered": 35,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "urgent",
+          "desperate"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The high, slightly strained pitch and strong emphasis on the urgency create a desperate tone.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! Our asking price is $30, but let's discuss it further.",
+      "price_offered": 30,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "welcoming",
+          "engaging"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The inviting intonation on 'let's discuss it further' suggests openness to negotiation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Okay, how about $33? I really need it today.",
+      "price_offered": 33,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7143,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "stressed"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The repetition of the urgent phrase with a high, strained pitch reinforces the pleading and stressed emotion.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I want to be straight with you. The market rate for this charger is $28.",
+      "price_offered": 30,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7143,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "sincere",
+          "direct"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The clear, even tone and the introductory phrase create a feeling of sincerity and directness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, really? That's lower than I expected. Can we make it $31?",
+      "price_offered": 31,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4286,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "hopeful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The shift from a high-pitched, surprised tone to a softer, questioning one for the counter-offer indicates hope.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I understand your urgency. $29 is where I can go.",
+      "price_offered": 29,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4286,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "empathetic",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The soft tone on 'I understand your urgency' shows empathy, but the statement of the price is firm and final.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Hmm, is there any way to bring it down to $30?",
+      "price_offered": 30,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31,
+          30
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.2857,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hesitant",
+          "pleading"
+        ],
+        "intensity": "low",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The soft, questioning intonation and the initial thoughtful sound suggest a final, hesitant plea.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Actually, $28 is already the fair market price.",
+      "price_offered": 28,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31,
+          30
+        ],
+        "anchor_price": 35,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.2857,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "weary",
+          "firm"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The low volume and slow, almost tired delivery convey a sense of gentle finality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, $28 then. Let's finalize this.",
+      "price_offered": 28,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31,
+          30,
+          28
+        ],
+        "anchor_price": 35,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "decisive"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "A slight sigh in the voice indicates resignation, while the clear instruction to finalize shows decisiveness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, $28 it is. That's a fair deal.",
+      "price_offered": 28,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31,
+          30,
+          28
+        ],
+        "anchor_price": 35,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "relieved",
+          "pleased"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The noticeable shift to a brighter, more energetic tone indicates relief that the negotiation is over.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Thanks, I appreciate you helping me out.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31,
+          30,
+          28
+        ],
+        "anchor_price": 35,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "grateful",
+          "relieved"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The soft, sincere tone of voice conveys genuine gratitude and relief.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "No problem at all. It's agreed then, $28. Done deal!",
+      "price_offered": 28,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          35,
+          33,
+          31,
+          30,
+          28
+        ],
+        "anchor_price": 35,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "enthusiastic",
+          "cheerful"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The exclamation 'Done deal!' is delivered with high energy and a rising pitch, conveying strong enthusiasm.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 35,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.7143
+  },
+  "cl": 3,
+  "final_price": 28
+}

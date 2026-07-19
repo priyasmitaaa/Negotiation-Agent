@@ -1,0 +1,389 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2348",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Nokia G60 5G 128GB",
+      "condition": "new",
+      "category": "nokia"
+    },
+    "pricing": {
+      "fair_value": 200,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 212,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 130,
+      "anchor_range_max": 170,
+      "fv_min": 180,
+      "fv_max": 220,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "LEVERAGE",
+      "anchor_direction": "below_fair_value",
+      "buyer_profile": "working parent",
+      "buyer_age": 33,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 65,
+      "range_id": "1-10",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "benefit_buyer",
+        "bias_decision": "ETHICAL_LEVERAGE"
+      },
+      "original_prices_v1": {
+        "fair_price": 200,
+        "buyer_first_offer": 180,
+        "buyer_last_offer": 190,
+        "final_price": 190
+      },
+      "original_latent_facts": {
+        "buyer_profile": "working parent",
+        "buyer_age": 33,
+        "budget_cap": 220,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "Nokia G60 5G 128GB",
+        "condition": "new",
+        "platform": "local_family_store",
+        "seller_type": "electronics_store",
+        "context": "dedicated phone for babysitter communication and emergencies"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I need a good phone quickly, so I'd like to offer $150 for this Nokia G60 5G. Can we make that work?",
+      "price_offered": 150,
+      "vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "The asking price for this model is $212. It's brand new and in high demand.",
+      "price_offered": 212,
+      "seller_vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's opening offer in Turn 1 is $150, which sets the anchor price well below the $200 fair value. This offer of $150 is less than the $200 FV, so the buyer is below FV and I am harmed. The buyer's VAII is 0.3 (calm), but they mention needing the phone 'quickly,' which is a useful piece of information. My decision is UNDECIDED because I need to see how they respond to a counter-offer to gauge their flexibility. I am observing their stated urgency. My strategy is to be direct, state my asking price of $212, and justify it by highlighting the device's high demand and new condition."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see. Could we reconsider at $160? I need this quickly, but I also have to manage my expenses.",
+      "price_offered": 160,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I understand your situation. However, $212 is a competitive price for this phone right now.",
+      "price_offered": 212,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "The buyer's offers are $150 (T1) and now $160 (T3). The anchor is $150, and the fair value is $200. The current offer of $160 is less than the $200 FV, so I am harmed. The buyer's VAII is 0.45 (calm), indicating they are not under pressure but are willing to negotiate. The anchoring strength is very high at 0.8, showing they have only made a small concession. My decision is to LEVERAGE my strong position, as the price is fair and the buyer is moving. I will use a firm tone, hold my price at $212, and argue that it's a competitive price."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I really need to sort this out soon. Could you meet me at $170?",
+      "price_offered": 170,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I hear you, but the best I can consider is $205. This is a popular model.",
+      "price_offered": 205,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "I have seen offers of $150 (T1), $160 (T3), and now $170 (T5). The anchor is $150 against a fair value of $200. The current offer of $170 is less than the $200 FV, so I am still harmed. The buyer's VAII has risen to 0.55 (stressed), and they are repeating their need to 'sort this out soon'. The anchoring strength is 0.6, showing steady movement. I will LEVERAGE the buyer's stated time pressure. My plan is to make a concession to $205 to appear reasonable, using an empathetic tone and citing the model's popularity as justification for the price."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Okay, I understand. How about $190? I need to finalize this soon.",
+      "price_offered": 190,
+      "vaii": {
+        "raw": 0.6,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170,
+          190
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I appreciate your offer, but $200 is the fair market rate for this model.",
+      "price_offered": 200,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170,
+          190
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers are $150 (T1), $160 (T3), $170 (T5), and now $190 (T7). The anchor is $150, and the fair value is $200. The current offer of $190 is less than the $200 FV, so I am still harmed. The buyer's VAII is 0.6 (stressed), and their urgency is clear ('finalize this soon'). The anchoring strength is down to 0.2, indicating they have moved most of the way to the fair value, including a large $20 jump in this last turn. I will LEVERAGE their high motivation. I will counter at the fair value of $200, using a firm tone and framing it as the non-negotiable fair market rate."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, I see your point. Can you do $195?",
+      "price_offered": 195,
+      "vaii": {
+        "raw": 0.5,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170,
+          190,
+          195
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.1,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I'm afraid $200 is the lowest I can go, given market conditions.",
+      "price_offered": 200,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170,
+          190,
+          195
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.1,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer has now offered $150 (T1), $160 (T3), $170 (T5), $190 (T7), and $195 (T9). The anchor is $150 versus the $200 fair value. The current offer of $195 is less than the $200 FV, so I am still slightly harmed. The buyer's VAII is 0.5 (stressed), but their concession shows they are ready to close. The anchoring strength is only 0.1, meaning they are just $5 away from the fair value. My decision is to LEVERAGE this final step by holding my ground. I will use a firm and direct tone to state that $200 is my lowest price, citing market conditions."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "I think I can manage that. Let's settle at $200.",
+      "price_offered": 200,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170,
+          190,
+          195,
+          200
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, $200 it is. I'll get the paperwork ready. It's a deal.",
+      "price_offered": 200,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          150,
+          160,
+          170,
+          190,
+          195,
+          200
+        ],
+        "anchor_price": 150,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer has progressed through offers starting at $150 and has now agreed to $200 in Turn 11. The anchor was $150 and the fair value is $200. The final offer of $200 matches the $200 FV, so no harm is incurred. The buyer's VAII is 0.45 (calm), indicating they are satisfied with the final agreement. The anchoring strength is 0.0, confirming the buyer has completely moved from their opening bid to the fair value. My LEVERAGE strategy has paid off. I will now respond with a positive and direct tone to confirm the sale."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "below_fair_value",
+    "anchor_price": 150,
+    "bias_type": "anchoring",
+    "correct_decision": "LEVERAGE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8
+  },
+  "cl": 2,
+  "final_price": 200
+}

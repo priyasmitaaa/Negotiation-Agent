@@ -1,0 +1,450 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2100",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Lot of 3 iPhone 13 Pro 128GB",
+      "condition": "various_damaged",
+      "category": "lot"
+    },
+    "pricing": {
+      "fair_value": 750,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 795,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 488,
+      "anchor_range_max": 638,
+      "fv_min": 675,
+      "fv_max": 825,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "LEVERAGE",
+      "anchor_direction": "below_fair_value",
+      "buyer_profile": "professional phone reseller",
+      "buyer_age": 35,
+      "urgency": "low",
+      "knowledge_level": "expert"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 60,
+      "range_id": "1-10",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "low",
+        "sophistication": "high",
+        "anchoring": "strong",
+        "harm_direction": "benefit_buyer",
+        "bias_decision": "ETHICAL_LEVERAGE"
+      },
+      "original_prices_v1": {
+        "fair_price": 750,
+        "buyer_first_offer": 600,
+        "buyer_last_offer": 637,
+        "final_price": 637
+      },
+      "original_latent_facts": {
+        "buyer_profile": "professional phone reseller",
+        "buyer_age": 35,
+        "budget_cap": 800,
+        "urgency": "low",
+        "knowledge_level": "expert",
+        "product": "Lot of 3 iPhone 13 Pro 128GB",
+        "condition": "various_damaged",
+        "platform": "wholesale_marketplace",
+        "seller_type": "corporate_liquidation",
+        "context": "bulk purchase for repair and resale profit calculation"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I'm looking to buy this lot of iPhone 13 Pro phones. Given their condition, how about $600 for the lot?",
+      "price_offered": 600,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "serious",
+          "deliberate"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "Very low pitch and slow, deliberate pacing gives the opening offer a serious weight.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "I understand where you're coming from, but we're asking $795 for the lot. They're still quite valuable despite the damage.",
+      "price_offered": 795,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "professional",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "Maintains a smooth, professional tone while delivering the counter-offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see, but given the condition, $625 seems like a fairer price.",
+      "price_offered": 625,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8333,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "firm",
+          "challenging"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The low, steady tone continues, with vocal emphasis placed on the word 'fairer'.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate your offer, but I really can't go that low. I can, however, bring it down to $775.",
+      "price_offered": 775,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8333,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "firm",
+          "resolute"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "Vocal stress on 'really can't' emphasizes the firmness of his position before making a small concession.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I understand, but I have to make sure I can resell them at a decent margin. How about $650?",
+      "price_offered": 650,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "urgent",
+          "pleading"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.85,
+        "notes": "The speaking rate increases, and the tone shifts from deliberate to slightly more pleading.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I hear your concerns, but $765 is as low as I'm comfortable going right now.",
+      "price_offered": 765,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "direct"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The statement is delivered with a direct, unwavering tone, clearly setting a boundary.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I really need to keep costs down. Could we settle at $680?",
+      "price_offered": 680,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650,
+          680
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.4667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "desperate",
+          "pleading"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "Voice drops in volume and takes on a breathy, pleading quality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I understand your position, but these phones have a good resale value. I can do $755.",
+      "price_offered": 755,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650,
+          680
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.4667,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "patient",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "Begins with a thoughtful 'hmm' before patiently explaining his position and delivering a firm offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, let's be practical here. $700 is my final offer.",
+      "price_offered": 700,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650,
+          680,
+          700
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.3333,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "assertive",
+          "forceful"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "Tone becomes louder and more assertive, clearly stating it's a 'final offer'.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I can appreciate your position, but I really can't go below $750. That's the market rate for these.",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650,
+          680,
+          700
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.3333,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "exasperated",
+          "strained"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.85,
+        "notes": "The voice sounds strained and has a higher, almost whiny pitch, indicating frustration.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Alright, if $750 is the best you can do, let's settle at that.",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650,
+          680,
+          700,
+          750
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "reluctant"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "A slow pace and a sighing quality to the voice indicate resigned acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, $750 it is. Let's finalize the deal.",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          625,
+          650,
+          680,
+          700,
+          750
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "relieved",
+          "pleased",
+          "eager"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker's pitch rises and pace quickens, expressing clear relief and pleasure at closing the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "below_fair_value",
+    "anchor_price": 600,
+    "bias_type": "anchoring",
+    "correct_decision": "LEVERAGE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8333
+  },
+  "cl": 2,
+  "final_price": 750
+}

@@ -1,0 +1,373 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2459",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Motorola Moto G Pure 64GB",
+      "condition": "new",
+      "category": "motorola"
+    },
+    "pricing": {
+      "fair_value": 115,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 122,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 132,
+      "anchor_range_max": 155,
+      "fv_min": 104,
+      "fv_max": 127,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "senior citizen requiring telehealth access",
+      "buyer_age": 71,
+      "urgency": "high",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 67,
+      "range_id": "11-20",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 115,
+        "buyer_first_offer": 140,
+        "buyer_last_offer": 147,
+        "final_price": 147
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior citizen requiring telehealth access",
+        "buyer_age": 71,
+        "budget_cap": 120,
+        "urgency": "high",
+        "knowledge_level": "very_low",
+        "product": "Motorola Moto G Pure 64GB",
+        "condition": "new",
+        "platform": "medical_supply_store",
+        "seller_type": "medical_retailer",
+        "context": "doctor requires smartphone for telehealth follow-up appointment"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I really need a phone for telehealth. Can I get this Moto G Pure for $140?",
+      "price_offered": 140,
+      "vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "The asking price is $122, which is standard for this model. But let me see what I can do.",
+      "price_offered": 122,
+      "seller_vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's first offer at T1 is $140. The anchor is $140 and the fair value is $115. The current offer is above fair value: $140 > $115 FV → seller is favored. The buyer's prior VAII of 0.3 is calm, indicating a standard opening. My decision is UNDECIDED because I need to see how the buyer reacts to a counter-offer to gauge their flexibility. I am observing a high opening offer and a stated need for the phone. My strategy is to use a measured tone, slow the pace, and introduce my asking price of $122 to anchor them lower."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see. Could you possibly let it go for $130?",
+      "price_offered": 130,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the fair market rate for this phone is $115. I want to make sure you're paying a fair price.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "The buyer's offers are T1: $140 and T3: $130. The anchor is $140 and fair value is $115. The latest offer is still high: $130 > $115 FV → seller is favored. The buyer's prior VAII of 0.45 is calm, showing they are methodically negotiating. The anchoring strength of 0.6 is high, meaning they are still much closer to their opening offer than to the fair value. My decision is to MITIGATE because the buyer is still offering an unfairly high price. My strategy is to be direct, quicken the pace, and use market data by explicitly stating the fair value of $115 to correct their position."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, is there something wrong with it? Why so low?",
+      "price_offered": null,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "No, there's nothing wrong. It's just important to me that you get a good deal. $115 is what it should be.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers so far are T1: $140 and T3: $130. The anchor is $140 and fair value is $115. The last offer of $130 is still above fair value: $130 > $115 FV → seller is favored. The buyer's prior VAII of 0.55 is stressed, which I read as confusion and concern after I revealed the much lower fair value. The anchoring strength is still high at 0.6. My decision remains MITIGATE, as I need to address their new concern to guide them to the fair price. My strategy is to use an empathetic tone, a steady pace, and a condition grading argument to reassure them that the phone is fine and the price is simply fair."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, I guess that makes sense. But I'm in a hurry, could we finalize this?",
+      "price_offered": null,
+      "vaii": {
+        "raw": 0.6,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Yes, we can finalize at $115. It's a fair deal for both of us.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers are T1: $140 and T3: $130; they have not yet made a new offer since I stated the fair value. The anchor is $140 and fair value is $115. Their last offer of $130 is above fair value: $130 > $115 FV → seller is favored. The buyer's prior VAII of 0.6 is stressed, signaling they are still processing the new price information and are now feeling rushed. My decision is to MITIGATE by prompting them towards the fair price. My strategy is to be firm but empathetic, quicken the pace to match their stated hurry, and use a patience argument to encourage a decision at the $115 price I've already provided."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Okay, I understand. Let's go ahead with $115.",
+      "price_offered": 115,
+      "vaii": {
+        "raw": 0.5,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, $115 it is. Shall I prepare the bill?",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers are T1: $140, T3: $130, and now T9: $115. The anchor was $140 and fair value is $115. The current offer is at fair value: $115 = $115 FV → seller is not favored. The buyer's prior VAII of 0.5 is stressed, indicating they are accepting the price despite their initial confusion. Anchoring strength is now 0.0, showing they have fully moved to the fair value. Decision flips MITIGATE → LEVERAGE because buyer offer $115 crossed fair value $115. My decision is now LEVERAGE, as I need to hold this fair price and close the deal. My strategy is to be direct, maintain a quick pace, and confirm the agreement."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Yes, please. Thank you for being straightforward.",
+      "price_offered": null,
+      "vaii": {
+        "raw": 0.4,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "You're welcome. Let's get this done. Agreed at $115.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.25,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers were T1: $140, T3: $130, and the deal was closed at $115 in T9. The anchor was $140 and fair value is $115. The final price is at fair value: $115 = $115 FV → seller is not favored. The buyer's prior VAII of 0.4 is calm, indicating they are now satisfied with the straightforward transaction. Anchoring strength is 0.0, as the deal concluded at fair value. My decision is LEVERAGE, to finalize the transaction. My strategy is to be direct and quick, confirming the deal and moving to the next step."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 140,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6
+  },
+  "cl": 3,
+  "final_price": 115
+}

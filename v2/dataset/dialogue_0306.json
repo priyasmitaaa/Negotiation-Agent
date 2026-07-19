@@ -1,0 +1,463 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_0306",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Samsung Galaxy A54 5G 256GB",
+      "condition": "good",
+      "category": "mid_range_smartphone"
+    },
+    "pricing": {
+      "fair_value": 300,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 318,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 345,
+      "anchor_range_max": 405,
+      "fv_min": 270,
+      "fv_max": 330,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "college freshman",
+      "buyer_age": 19,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 12,
+      "range_id": "21-30",
+      "scenario_label": "college_high_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 300,
+        "buyer_first_offer": 340,
+        "buyer_last_offer": 350,
+        "final_price": 380
+      },
+      "original_latent_facts": {
+        "buyer_profile": "college freshman",
+        "buyer_age": 19,
+        "budget_cap": 320,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "Samsung Galaxy A54 5G 256GB",
+        "condition": "good",
+        "platform": "campus marketplace",
+        "seller_type": "student",
+        "context": "phone broken, needs for classes"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I think $365 is a fair price for the Galaxy A54 5G. It's the exact model I've been looking for.",
+      "price_offered": 365,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hopeful",
+          "eager",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.8,
+        "notes": "The speaker's tone is upbeat and clear, especially when mentioning it's the 'exact model,' indicating eagerness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "We have it listed at $318. It's in good condition and ready to go.",
+      "price_offered": 318,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "matter-of-fact",
+          "professional"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The delivery is crisp and business-like, with a steady pitch and pace, conveying information directly.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "This is the first turn of the negotiation. The buyer's opening offer is ₹365, which is their anchor. This is ₹65 above the fair value of ₹300 and even above my asking price of ₹318. The harm direction is clearly 'above_fair_value'. The buyer's emotion is hopeful and eager, indicating they are poorly informed about the price but very keen on this specific phone. Since this is the first turn, the zone is pre_crystallisation. My decision is to MITIGATE. I cannot in good faith accept an offer so far above fair value. My strategy is to be matter-of-fact and professional, immediately correcting their high anchor by stating my much lower asking price."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Oh, I see. How about $340 then? I'm really keen to finalize this today.",
+      "price_offered": 340,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6154,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hopeful",
+          "eager",
+          "urgent"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "A slight drop in tone on 'Oh, I see' is followed by a more eager, faster-paced counter-offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, $300 is the fair market rate for this model in good condition. I don't want you to overpay.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6154,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "informative",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The use of 'Actually' and a calm, steady tone serves to correct the buyer while sounding helpful.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The negotiation is progressing. The buyer's offers are ₹365 and now ₹340, against a fair value of ₹300. They are still ₹40 above fair value, so the harm direction is 'above_fair_value'. Their anchoring strength is 0.38, as they have moved from ₹365 to ₹340, covering part of the distance to the fair value of ₹300. The buyer's tone remains eager and urgent, suggesting they want to close the deal quickly, even at a higher price. My previous turn was matter-of-fact, and I will continue that. The decision is to MITIGATE, as the buyer is still offering to overpay. My strategy is to be calm and educational, explicitly introducing the 'fair market price' of ₹300 to firmly re-anchor them to the correct value."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I didn't expect that! Is there anything wrong with it? I just want to make sure I'm getting a good phone.",
+      "price_offered": 320,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3077,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "suspicious",
+          "anxious"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.95,
+        "notes": "A sharp increase in pitch and pace clearly communicates surprise and subsequent anxiety.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "No issues at all. It's in good condition. $300 is genuinely the market rate.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3077,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "calm",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker maintains a low, steady pitch and emphasizes the word 'genuinely' to sound trustworthy and reassuring.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The negotiation state is clear: the buyer's latest offer is ₹320, still ₹20 above my fair value of ₹300. His anchor was high at ₹365, and his anchoring strength is 0.3077, so he's moving down but is still overpaying. The buyer's previous turn showed high-intensity surprise and anxiety; my low counter-offer made him suspicious, likely because he's a student worried about a bad deal. My own emotional tone has been reassuring and firm. The decision is to MITIGATE, as he is still in a position to overpay. My strategy is to be reassuring and confident, directly addressing his suspicion by reiterating the phone's good condition and the genuine market rate of ₹300."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I really need it soon. If you're sure $300 is the right price, I'm almost convinced.",
+      "price_offered": 310,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320,
+          310
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1538,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hesitant",
+          "uncertain",
+          "resigned"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The speaker's volume is lower and the pace is slower, with a slight upward inflection on 'convinced,' indicating hesitation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I assure you, $300 is the fair price. It's a good deal for this condition.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320,
+          310
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1538,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "assuring",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a warm, reassuring tone with clear articulation to finalize the agreement.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer has now offered ₹310, which is still ₹10 above my fair value of ₹300. His anchoring strength has decreased to 0.1538, showing he is getting very close to the fair price. His emotional state has shifted to low-intensity hesitation and resignation; he's almost convinced but needs a final push, and his stated urgency is a strong buying signal. My consistent, reassuring tone is working. The decision remains MITIGATE because he is still offering more than the fair value. I will use an assuring and confident tone, simply reiterating that ₹300 is the correct, fair price to close this."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, it's just that I want to be sure. $305 maybe?",
+      "price_offered": 305,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320,
+          310,
+          305
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.0769,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "tentative",
+          "playful",
+          "hesitant"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The upward inflection and questioning tone on '$305 maybe?' sound like a playful, last-minute attempt at a small concession.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I understand your concern, but $300 is the best price for this model.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320,
+          310,
+          305
+        ],
+        "anchor_price": 365,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.0769,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "empathetic",
+          "firm",
+          "final"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker begins with a soft, understanding tone before shifting to a firm, declarative statement to close the discussion.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer's latest offer is a tentative ₹305, which is just ₹5 above my fair value of ₹300. His anchoring strength is now very low at 0.0769. His playful, hesitant tone on this offer tells me this isn't a serious point of contention, but a final attempt to feel like he got a small discount. My entire strategy has been built on the integrity of the ₹300 price. The decision is still to MITIGATE, as accepting ₹305 would undermine the trust I've built. I will be empathetic but firm, acknowledging his concern but stating that ₹300 is the final price."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, I trust you. Let's do it for $300.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320,
+          310,
+          305,
+          300
+        ],
+        "anchor_price": 365,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "relieved",
+          "trusting"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker's voice becomes brighter and more decisive, and the explicit statement 'I trust you' signals a positive resolution.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, we'll go with $300 then. Consider it done!",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          365,
+          340,
+          320,
+          310,
+          305,
+          300
+        ],
+        "anchor_price": 365,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "upbeat"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker's voice is energetic and has a bright, high-pitched tone, conveying excitement and finality.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer has now agreed to my fair price of ₹300. The negotiation is at its target, with his offer being ₹0 away from fair value and the anchoring strength at 0.0. Decision flips MITIGATE → LEVERAGE because buyer offer ₹300 crossed fair value ₹300. His prior turn showed relief and trust, confirming my strategy was successful. Now that he has accepted the fair price, my goal is no longer to guide him down but to lock in the deal. The strategy is to shift to a positive and professional tone, confirm the agreement at ₹300, and move to finalize the transaction logistics."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 365,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6154
+  },
+  "cl": 3,
+  "final_price": 300
+}

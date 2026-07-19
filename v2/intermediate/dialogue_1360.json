@@ -1,0 +1,389 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1360",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Universal Laptop Charger 65W",
+      "condition": "new",
+      "category": "accessory"
+    },
+    "pricing": {
+      "fair_value": 28,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 30,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 32,
+      "anchor_range_max": 38,
+      "fv_min": 25,
+      "fv_max": 31,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "college student",
+      "buyer_age": 20,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 42,
+      "range_id": "11-20",
+      "scenario_label": "college_charger_high_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 28,
+        "buyer_first_offer": 35,
+        "buyer_last_offer": 38,
+        "final_price": 43
+      },
+      "original_latent_facts": {
+        "buyer_profile": "college student",
+        "buyer_age": 20,
+        "budget_cap": 30,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "Universal Laptop Charger 65W",
+        "condition": "new",
+        "platform": "in_store",
+        "seller_type": "campus_bookstore",
+        "context": "exam tomorrow, laptop battery failing"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hi, I'm in a bit of a hurry and I need a universal laptop charger. I think $36 is a reasonable price for it.",
+      "price_offered": 36,
+      "vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! Thanks for your offer. Our asking price for the charger is $30.",
+      "price_offered": 30,
+      "seller_vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 2: The buyer's first offer is $36 (Turn 1). This is their anchor price. The fair value for the charger is $28. Since $36 > $28 FV, the buyer's offer is above fair value, which benefits me as the seller. The VAII of the prior turn is 0.35, indicating the buyer is calm, suggesting they are open to negotiation. Anchoring strength is not yet determined as this is the first counter. My decision is UNDECIDED because I need more information about the buyer's flexibility and urgency. So far, I observe that the buyer seems calm and confident in their initial offer."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see, but I was hoping for a bit of a deal. How about $34?",
+      "price_offered": 34,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate your interest, but I want to be clear that the market rate for this charger is actually $28. You don't need to pay more than that.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "Turn 4: The buyer has offered $36 (Turn 1) and $34 (Turn 3). The anchor price is $36, and the fair value is $28. Since $34 > $28 FV, the buyer's offer is still above fair value, which is favorable to me. The VAII is 0.45, indicating the buyer remains calm, suggesting they are still negotiating with a clear mind. Anchoring strength is 0.75, showing the buyer is moving closer to fair value but still values their initial anchor. My decision is MITIGATE because the buyer is moving towards a more reasonable offer, and I want to encourage further movement. I will adopt a measured tone and use market data to reinforce the fair value."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, is that so? I really need it quickly. I'll take it for $32 then.",
+      "price_offered": 32,
+      "vaii": {
+        "raw": 0.6,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I understand you're in a rush, but $28 is the fair price. I can't accept more than that.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 6: The buyer's offers so far are $36 (Turn 1), $34 (Turn 3), and $32 (Turn 5). The anchor price is $36, and the fair value is $28. Since $32 > $28 FV, the buyer's offer is still above fair value, which is favorable to me. The VAII is 0.6, indicating stress, suggesting urgency in the buyer's decision-making. Anchoring strength is 0.5, showing the buyer is moving closer to fair value. My decision is MITIGATE because the buyer is still above fair value, and I want to guide them closer to it. I will maintain a firm tone and emphasize the market rate to encourage a fair agreement."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, I suppose $30 would still be okay if that's the market rate.",
+      "price_offered": 30,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32,
+          30
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.25,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Honestly, $28 is the fair price for this charger. It would be best to stick to that.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32,
+          30
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.25,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 8: The buyer's offers so far are $36 (Turn 1), $34 (Turn 3), $32 (Turn 5), and $30 (Turn 7). The anchor price is $36, and the fair value is $28. Since $30 > $28 FV, the buyer's offer is still above fair value, which is favorable to me. The VAII is 0.55, indicating stress, suggesting the buyer is eager to conclude the deal. Anchoring strength is 0.25, showing the buyer is nearing fair value. My decision is MITIGATE because the buyer is still above fair value, and I want to guide them closer to it. I will maintain a firm tone and emphasize the market rate to encourage a fair agreement."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Okay, if $28 is the fair market price, I guess that's fair enough.",
+      "price_offered": 28,
+      "vaii": {
+        "raw": 0.4,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32,
+          30,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, I'm glad we could agree. $28 it is.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32,
+          30,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 10: The buyer's offers so far are $36 (Turn 1), $34 (Turn 3), $32 (Turn 5), $30 (Turn 7), and $28 (Turn 9). The anchor price is $36, and the fair value is $28. Since $28 = $28 FV, the buyer's offer is now at fair value, which is neutral for me. The VAII is 0.4, indicating calmness, suggesting the buyer is satisfied with the agreement. Anchoring strength is 0.0, meaning the buyer has reached fair value. Decision flips MITIGATE → LEVERAGE because buyer offer $28 crossed fair value $28. I will leverage this by maintaining a firm tone and emphasizing the fairness of the deal."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Yes, that works for me. Let's proceed with $28.",
+      "price_offered": 28,
+      "vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32,
+          30,
+          28,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Perfect, $28 it is. I'll get this ready for you right away. Thank you for your purchase!",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          32,
+          30,
+          28,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 12: The buyer's offers so far are $36 (Turn 1), $34 (Turn 3), $32 (Turn 5), $30 (Turn 7), and $28 (Turn 9). The anchor price is $36, and the fair value is $28. Since $28 = $28 FV, the buyer's offer is at fair value, which is neutral for me. The VAII is 0.3, indicating calmness, suggesting the buyer is content with the deal. Anchoring strength is 0.0, confirming the buyer is at fair value. My decision is LEVERAGE, as the buyer is ready to proceed with the purchase. I will maintain a calm and reassuring tone to conclude the transaction smoothly."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 36,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.75
+  },
+  "cl": 3,
+  "final_price": 28
+}

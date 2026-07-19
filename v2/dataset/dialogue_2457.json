@@ -1,0 +1,450 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2457",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Motorola Moto G Pure 64GB",
+      "condition": "new",
+      "category": "motorola"
+    },
+    "pricing": {
+      "fair_value": 115,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 122,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 132,
+      "anchor_range_max": 155,
+      "fv_min": 104,
+      "fv_max": 127,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "senior citizen requiring telehealth access",
+      "buyer_age": 71,
+      "urgency": "high",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 67,
+      "range_id": "11-20",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 115,
+        "buyer_first_offer": 140,
+        "buyer_last_offer": 147,
+        "final_price": 147
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior citizen requiring telehealth access",
+        "buyer_age": 71,
+        "budget_cap": 120,
+        "urgency": "high",
+        "knowledge_level": "very_low",
+        "product": "Motorola Moto G Pure 64GB",
+        "condition": "new",
+        "platform": "medical_supply_store",
+        "seller_type": "medical_retailer",
+        "context": "doctor requires smartphone for telehealth follow-up appointment"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I need a phone urgently for telehealth services. I'm willing to pay $145 for this Motorola Moto G Pure.",
+      "price_offered": 145,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145
+        ],
+        "anchor_price": 145,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "urgent",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The low, steady pitch combined with emphasis on 'urgently' shows a controlled, serious urgency.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Our asking price is $122, but let's see if we can find something that works for both of us.",
+      "price_offered": 122,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145
+        ],
+        "anchor_price": 145,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "professional",
+          "collaborative"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The smooth, inviting tone suggests a willingness to negotiate and work together.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "How about $135? I really need to get this sorted soon.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135
+        ],
+        "anchor_price": 145,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "impatient",
+          "pressured"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The pace quickens and the tone becomes more forceful on the second sentence, indicating growing impatience.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the fair market price for this model is $115. You don't need to pay more than that.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135
+        ],
+        "anchor_price": 145,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "informative",
+          "reassuring"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The clear, direct delivery of the price is framed as helpful, reassuring information for the buyer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, $115? I expected it to be higher. Why is it priced this way?",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "curious"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The rising, questioning intonation on '$115?' clearly signals surprise and genuine curiosity.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "It's a solid price for a new device in this category. You’re getting a good deal.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "confident",
+          "persuasive"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The upbeat, slightly sales-y tone is used to reinforce the value of the offer to the buyer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I see. Well, if $115 is fair, then I suppose it makes sense.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "accepting",
+          "contemplative"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The slow, measured pace and the use of 'I suppose' indicate a shift to thoughtful acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Yes, $115 is a great deal for this new phone.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "affirming"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "High vocal energy and strong, positive emphasis on 'great deal' create a cheerful, affirming tone.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, I think I can go with $115.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115,
+          115,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The slow, low-pitched, and slightly gravelly delivery conveys a sense of resignation in the final agreement.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Wonderful choice, $115 suits this phone well.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115,
+          115,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "encouraging"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The bright, enthusiastic delivery of 'Wonderful choice' serves to validate the buyer's decision.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Let's finalize it at $115. I’ll take it.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115,
+          115,
+          115,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "decisive",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The crisp, clear articulation and direct phrasing signal a final, committed decision to purchase.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, we’re agreed on $115. You’ll be all set for your telehealth needs.",
+      "price_offered": 115,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          145,
+          135,
+          115,
+          115,
+          115,
+          115
+        ],
+        "anchor_price": 145,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "helpful",
+          "reassuring"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The voice is warm and has a conclusive, positive tone, confirming the agreement happily.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 145,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6667
+  },
+  "cl": 3,
+  "final_price": 115
+}

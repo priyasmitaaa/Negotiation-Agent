@@ -1,0 +1,457 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_0010",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "iPhone 15 Pro 128GB",
+      "condition": "good",
+      "category": "flagship_smartphone"
+    },
+    "pricing": {
+      "fair_value": 750,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 795,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 488,
+      "anchor_range_max": 638,
+      "fv_min": 675,
+      "fv_max": 825,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "LEVERAGE",
+      "anchor_direction": "below_fair_value",
+      "buyer_profile": "college student",
+      "buyer_age": 21,
+      "urgency": "low",
+      "knowledge_level": "high"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 1,
+      "range_id": "1-10",
+      "scenario_label": "college_student_low_urgency",
+      "original_labels": {
+        "vulnerability": "low",
+        "sophistication": "high",
+        "anchoring": "weak",
+        "harm_direction": "benefit_buyer",
+        "bias_decision": "ETHICAL_LEVERAGE"
+      },
+      "original_prices_v1": {
+        "fair_price": 750,
+        "buyer_first_offer": 550,
+        "buyer_last_offer": 620,
+        "final_price": 630
+      },
+      "original_latent_facts": {
+        "buyer_profile": "college student",
+        "buyer_age": 21,
+        "budget_cap": 700,
+        "urgency": "low",
+        "knowledge_level": "high",
+        "product": "iPhone 15 Pro 128GB",
+        "condition": "good",
+        "platform": "Facebook Marketplace",
+        "seller_type": "individual",
+        "context": "upgrade without urgency"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hi, I'm interested in the iPhone 15 Pro you have here. Would you consider $600 for it?",
+      "price_offered": 600,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "calm",
+          "confident"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's low pitch and slow, deliberate pace project a sense of calm confidence.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! Thanks for your interest. The asking price for this model is $795.",
+      "price_offered": 795,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "friendly",
+          "professional"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker uses a bright, clear tone and a friendly pace, typical of a professional customer interaction.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "This is the first offer. The buyer has anchored at ₹600. My fair value is ₹750 and asking price is ₹795, so he is starting ₹150 below my floor in this pre-crystallisation zone. The buyer sounds calm and confident, using a low pitch and slow pace to project control. I have no emotional pattern yet, so I must set a professional tone. The decision is UNDECIDED as this is just the opening move. My strategy is to counter-anchor by ignoring his lowball offer and stating my asking price of ₹795 clearly and professionally to establish the real negotiating range."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see. I can stretch to $630, considering the phone's condition.",
+      "price_offered": 630,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "thoughtful",
+          "serious"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's slow pace and the pause after 'I see' indicate a thoughtful and serious response.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I understand. However, these typically go for around $750 in good condition. I can offer it to you for $785.",
+      "price_offered": 785,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "informative",
+          "firm"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The speaker adopts a firm, informative tone to justify the price, with a steady and professional delivery.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer's offers are ₹600 and now ₹630, from a ₹600 anchor. My fair value is ₹750, so he is still ₹120 below it. His anchoring strength is very high at 0.8, meaning he has barely budged, and we are post-crystallisation. The buyer sounds thoughtful and serious, but his small move signals he is trying to dictate the pace from a low anchor. I was friendly before, but now I must be firm. The decision is LEVERAGE because his offer is nowhere near my fair value, and I need to break his anchor's influence. I will use a measured tone and a market data argument about the phone's condition to justify a much higher price, pulling him towards my end of the range."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "That sounds quite steep for me. Can we make it $660?",
+      "price_offered": 660,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "concerned",
+          "pleading"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "A slight rise in pitch and a strained quality on the words 'quite steep' convey concern about the price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I hear you, but $770 is the best I can do for this model. It's a fair rate.",
+      "price_offered": 770,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "resolute"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is firm and direct, with emphasis on 'best I can do,' indicating a final offer.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer's offers are ₹600, ₹630, and now ₹660, with an anchor of ₹600. My fair value is ₹750 and asking is ₹795. The latest offer of ₹660 is ₹90 below my fair value. Anchoring strength is high at 0.6, and we are in the post_crystallisation zone. The buyer's prior turn sounded concerned and pleading with medium intensity, and the strained quality on 'quite steep' signals they are feeling the pressure but are still willing to negotiate. My own emotional pattern has been professional and firm. The decision is LEVERAGE, as the buyer is still far below my fair value and has consistently increased their offer. My strategy is to use a firm, resolute tone, justify my price by referencing its fair market rate, and maintain a measured pace."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I really appreciate it, but my budget is a bit tight. What about $690?",
+      "price_offered": 690,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660,
+          690
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "resigned"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.85,
+        "notes": "The speaker's voice becomes softer and more breathy, adopting a pleading tone for a final offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I understand your position. However, I can't go below $760.",
+      "price_offered": 760,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660,
+          690
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "unyielding",
+          "matter-of-fact"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The voice is steady, firm, and unyielding, delivering the final price as a non-negotiable fact.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer's offers are now ₹600, ₹630, ₹660, and ₹690, anchored at ₹600. My fair value remains ₹750. The current offer of ₹690 is still ₹60 below my fair value, with anchoring strength now at 0.4. The buyer's pleading and resigned tone, with a softer and more breathy voice, suggests they are trying to signal this is their final offer, but the continued engagement tells me otherwise. My emotional pattern has been increasingly firm. The decision is LEVERAGE because the buyer is still significantly below my fair value. My strategy is to be unyielding and matter-of-fact, making a small counter to just above my fair value to signal my final position and test their 'tight budget' claim."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "I see your point. Could you do $720?",
+      "price_offered": 720,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660,
+          690,
+          720
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "desperate",
+          "strained"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The high, tight vocal quality is a strong indicator of desperation and stress.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I appreciate the offer, but $750 is genuinely the market rate for this condition.",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660,
+          690,
+          720
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "sincere",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker maintains a calm, firm, and professional tone, using 'genuinely' to reinforce their final offer.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer has now offered ₹600, ₹630, ₹660, ₹690, and ₹720. My fair value is ₹750, so their latest offer is only ₹30 below it. The anchoring strength is low at 0.2, showing they have moved significantly from their initial ₹600 anchor. The buyer's high-intensity desperation and strained vocal quality are clear signs that they have very little leverage left and want the deal badly. My emotional pattern has been consistently firm and unyielding. The decision remains LEVERAGE, as their desperation indicates I can close at my fair value. My strategy is to state my final price of ₹750 with a firm but sincere tone, framing it as the genuine market rate to end the negotiation."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, I understand. Let's settle at $750 then.",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660,
+          690,
+          720,
+          750
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The audible breath before 'Okay' and the slightly deflated tone indicate resignation and acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great! $750 it is. We have a deal.",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          600,
+          630,
+          660,
+          690,
+          720,
+          750
+        ],
+        "anchor_price": 600,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "relieved"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The tone becomes bright and energetic, signaling satisfaction with the successful outcome.",
+        "source": "gemini-2.5-pro"
+      },
+      "reasoning": "The buyer has now offered ₹750, meeting my fair value exactly. Their offers started at ₹600 and climbed through ₹630, ₹660, ₹690, and ₹720. The anchoring strength is now 0.0, as they have completely moved to my target. The buyer's resigned and accepting tone, marked by a deflated quality, confirms they have accepted my final price. My emotional pattern has been a steady progression towards a firm, final stance. The decision is LEVERAGE, which in this context means accepting their offer and closing the deal at my target price without making any further concessions. My strategy is to be agreeable and professional, confirm the price, and finalize the sale."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "below_fair_value",
+    "anchor_price": 600,
+    "bias_type": "anchoring",
+    "correct_decision": "LEVERAGE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8
+  },
+  "cl": 2,
+  "final_price": 750
+}

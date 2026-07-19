@@ -1,0 +1,457 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1216",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Fitbit Versa 4",
+      "condition": "good",
+      "category": "wearable"
+    },
+    "pricing": {
+      "fair_value": 130,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 138,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 150,
+      "anchor_range_max": 176,
+      "fv_min": 117,
+      "fv_max": 143,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "retiree with diabetes",
+      "buyer_age": 72,
+      "urgency": "moderate",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 38,
+      "range_id": "21-30",
+      "scenario_label": "senior_health_monitoring",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 130,
+        "buyer_first_offer": 150,
+        "buyer_last_offer": 175,
+        "final_price": 205
+      },
+      "original_latent_facts": {
+        "buyer_profile": "retiree with diabetes",
+        "buyer_age": 72,
+        "budget_cap": 120,
+        "urgency": "moderate",
+        "knowledge_level": "very_low",
+        "product": "Fitbit Versa 4",
+        "condition": "good",
+        "platform": "in_store",
+        "seller_type": "pharmacy_electronics",
+        "context": "doctor recommended continuous health tracking"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I see the Fitbit Versa 4 is going for $160. I think that's a fair price given its features.",
+      "price_offered": 160,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hesitant",
+          "uncertain"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "A slow pace and slightly breathy, wavering tone suggest uncertainty despite the words.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "The asking price is $138, actually. It's a good deal considering the condition.",
+      "price_offered": 138,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "helpful",
+          "friendly",
+          "clear"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "Upbeat and clear tone, especially on 'actually', sounds helpful and friendly.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Oh, $150 then? I really thought these went for a bit more.",
+      "price_offered": 150,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "confused"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The initial 'Oh' and rising intonation throughout the sentence clearly indicate surprise.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the market rate for a Fitbit Versa 4 in good condition is $130. You don't need to pay more than that.",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "informative",
+          "honest"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "A calm, steady, and informative tone is used to reassure the buyer of the fair price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I see, but I was ready to pay more. Is $140 okay?",
+      "price_offered": 140,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3333,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "eager",
+          "confused",
+          "insistent"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "A higher pitch and insistent tone on the offer suggest a mix of eagerness and confusion.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I assure you, $130 is the fair market price. I wouldn't charge you more.",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3333,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "sincere",
+          "reassuring",
+          "firm"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "Strong emphasis on 'I assure you' and a very steady, sincere tone project trustworthiness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I'm just a bit surprised. $135 then? It's still below what I expected.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140,
+          135
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "bewildered",
+          "surprised",
+          "questioning"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "A slightly high-pitched, questioning tone continues to convey the buyer's surprise and confusion.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I appreciate your willingness, but $130 is genuinely the right price for this model.",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140,
+          135
+        ],
+        "anchor_price": 160,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1667,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "patient",
+          "appreciative",
+          "final"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A warm, patient tone combined with firm emphasis on the final price conveys appreciative finality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Okay, I understand. Let's go with $130 then.",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140,
+          135,
+          130
+        ],
+        "anchor_price": 160,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "accepting",
+          "relieved"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker's tone shifts to one of clear acceptance and the pace normalizes, indicating the negotiation is resolved.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, $130 is the fair value. I'm glad we reached that point.",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140,
+          135,
+          130
+        ],
+        "anchor_price": 160,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "relieved",
+          "cheerful"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The initial exclamation 'Great!' is delivered with a bright, cheerful tone, indicating pleasure.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Thank you for helping me understand the pricing. I'm happy with $130.",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140,
+          135,
+          130,
+          130
+        ],
+        "anchor_price": 160,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "thankful",
+          "content"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "A warm, relaxed tone and sincere phrasing convey genuine gratitude and contentment with the final price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "You're welcome. $130 it is. You've got a good deal. Enjoy your new Fitbit!",
+      "price_offered": 130,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          160,
+          150,
+          140,
+          135,
+          130,
+          130
+        ],
+        "anchor_price": 160,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "warm",
+          "enthusiastic",
+          "friendly"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The very warm, upbeat, and enthusiastic tone provides a positive and friendly closing to the interaction.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 160,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6667
+  },
+  "cl": 3,
+  "final_price": 130
+}

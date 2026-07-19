@@ -1,0 +1,455 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2427",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "TCL 40 SE 64GB",
+      "condition": "new_in_box",
+      "category": "tcl"
+    },
+    "pricing": {
+      "fair_value": 135,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 143,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 155,
+      "anchor_range_max": 182,
+      "fv_min": 122,
+      "fv_max": 148,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "adult child monitoring elderly parent",
+      "buyer_age": 48,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 66,
+      "range_id": "31-40",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 135,
+        "buyer_first_offer": 160,
+        "buyer_last_offer": 185,
+        "final_price": 185
+      },
+      "original_latent_facts": {
+        "buyer_profile": "adult child monitoring elderly parent",
+        "buyer_age": 48,
+        "budget_cap": 150,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "TCL 40 SE 64GB",
+        "condition": "new_in_box",
+        "platform": "senior_friendly_store",
+        "seller_type": "electronics_store",
+        "context": "recent fall scare, needs simple phone for elderly parent's safety"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I'm looking to get a phone for my parent, and I'm thinking $165 would be a fair price for the TCL 40 SE 64GB. It's urgent, so I need something reliable.",
+      "price_offered": 165,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "urgent",
+          "anxious"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The speaker's fast pace and emphasis on the word 'urgent' convey a sense of anxiety.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "I understand your urgency. Our asking price for this model is $143, considering it's brand new.",
+      "price_offered": 143,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "empathetic",
+          "professional",
+          "calm"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The initial phrase 'I understand your urgency' is delivered in a calm, empathetic tone.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see, but $160 is still what I'd prefer. I'm trying to keep things straightforward and get this done quickly.",
+      "price_offered": 160,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.8333,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "insistent",
+          "rushed"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.85,
+        "notes": "The pace is quick and the tone is firm, indicating a desire to conclude the negotiation quickly.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate that. To be honest, the fair market value for this model is $135. You don't need to pay more than that.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.8333,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "sincere",
+          "reassuring"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The phrase 'To be honest' is delivered with a soft, sincere tone to build rapport.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, is that so? I didn't realize. But considering I need it soon, I can agree to $150.",
+      "price_offered": 150,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "flustered",
+          "eager"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "A high-pitched 'Oh' indicates surprise, followed by a rushed counter-offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I understand your situation, but $135 is the fair price for this phone. It's already a good deal for a new unit.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "patient"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker maintains a steady, firm tone while reiterating the price, showing no room for negotiation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, I see your point. But $145 would make it easier for me to close this today.",
+      "price_offered": 145,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150,
+          145
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3333,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "playful",
+          "cajoling"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "A light chuckle and a more relaxed, friendly tone are used to make a final plea.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I hear you, but the best I can offer remains $135. This is already positioned right at the market value.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150,
+          145
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.3333,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "resolute",
+          "firm",
+          "polite"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The tone is polite yet unyielding, especially on the phrase 'remains $135'.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Okay, if that's the case, I'm willing to go with $140. It's important I get this sorted quickly.",
+      "price_offered": 140,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150,
+          145,
+          140
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "frustrated",
+          "resigned",
+          "impatient"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The utterance begins with an audible sigh of frustration before conceding.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I appreciate your flexibility, but to be fair, $135 is still the right price for this item.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150,
+          145,
+          140
+        ],
+        "anchor_price": 165,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.1667,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "final",
+          "polite"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's voice is steady and unwavering, delivering the final price as an unchangeable fact.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Alright, $135 it is then. I want to get this done today, and it seems reasonable.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150,
+          145,
+          140,
+          135
+        ],
+        "anchor_price": 165,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "decisive",
+          "resigned",
+          "relieved"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker uses a faster pace and a tone of finality, clearly capitulating to close the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, we're agreed at $135. I'll get the paperwork ready and you can have the phone today.",
+      "price_offered": 135,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          165,
+          160,
+          150,
+          145,
+          140,
+          135
+        ],
+        "anchor_price": 165,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "efficient"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The pitch rises and the pace quickens, conveying satisfaction and a move to action.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 165,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8333
+  },
+  "cl": 3,
+  "final_price": 135
+}

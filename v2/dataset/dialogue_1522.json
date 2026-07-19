@@ -1,0 +1,445 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1522",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "USB-C Charging Cable Set",
+      "condition": "new",
+      "category": "accessory"
+    },
+    "pricing": {
+      "fair_value": 12,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 13,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 14,
+      "anchor_range_max": 16,
+      "fv_min": 11,
+      "fv_max": 13,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "senior citizen",
+      "buyer_age": 70,
+      "urgency": "low",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 47,
+      "range_id": "31-40",
+      "scenario_label": "senior_charging_cable_low_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 12,
+        "buyer_first_offer": 15,
+        "buyer_last_offer": 17,
+        "final_price": 19
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior citizen",
+        "buyer_age": 70,
+        "budget_cap": 12,
+        "urgency": "low",
+        "knowledge_level": "very_low",
+        "product": "USB-C Charging Cable Set",
+        "condition": "new",
+        "platform": "in_store",
+        "seller_type": "electronics_store",
+        "context": "wants spare cable for convenience"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I think $15 is a fair price for this USB-C charging cable set.",
+      "price_offered": 15,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15
+        ],
+        "anchor_price": 15,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "matter-of-fact"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's voice is steady and clear, indicating confidence in their initial offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "We are asking for $13 for the set, but let's talk about it.",
+      "price_offered": 13,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15
+        ],
+        "anchor_price": 15,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "hesitant",
+          "uncertain"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The speaker's slow pace and use of a filled pause (\"uh\") suggest hesitation and uncertainty.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Alright, how about $14 then?",
+      "price_offered": 14,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14
+        ],
+        "anchor_price": 15,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "direct",
+          "eager"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The speech is quick and to the point, suggesting an eagerness to close the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the market rate for new cables like these is $12. I can offer it for $12.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14
+        ],
+        "anchor_price": 15,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "informative",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The speaker adopts a clear, slightly didactic tone to state a fact and make a firm counter-offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Is $12 really the lowest you can go? I thought it was worth a bit more.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "disappointed",
+          "questioning",
+          "skeptical"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "A rising intonation and slightly slower pace convey a sense of disappointment and skepticism.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "Yes, $12 is already a fair market price. You won't need to pay more.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "cheerful",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The light, almost laughing tone of voice is used to reassure the buyer in a friendly manner.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I see, I just want to ensure I'm getting a good deal.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "cautious",
+          "resigned"
+        ],
+        "intensity": "low",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The speaker's low volume and slow, deliberate pace indicate caution and a hint of resignation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Absolutely, and $12 is a very good price for a new set like this.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "enthusiastic",
+          "persuasive"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The high pitch and strong emphasis on the first word convey strong enthusiasm and persuasiveness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, if $12 is the market rate, I'm okay with that.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "accepting",
+          "resigned"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "A steady, even tone and moderate pace signal acceptance of the final price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, $12 is a fair deal for both of us.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "relieved",
+          "satisfied"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The slow, breathy delivery and elongated words suggest a sense of relief that the negotiation is over.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, let's go with the $12 then.",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12,
+          12,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "decisive",
+          "content"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "An upbeat and decisive tone signals contentment with the final agreement.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Deal. We'll go ahead with $12. Thank you!",
+      "price_offered": 12,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          15,
+          14,
+          12,
+          12,
+          12
+        ],
+        "anchor_price": 15,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "forced",
+          "performative"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.85,
+        "notes": "The overly loud and cheerful tone sounds unnatural, as if trying too hard to sound happy.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 15,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6667
+  },
+  "cl": 3,
+  "final_price": 12
+}

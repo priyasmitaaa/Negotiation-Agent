@@ -1,0 +1,437 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1070",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Apple Watch Series 9 GPS 41mm",
+      "condition": "excellent",
+      "category": "wearable"
+    },
+    "pricing": {
+      "fair_value": 300,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 318,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 345,
+      "anchor_range_max": 405,
+      "fv_min": 270,
+      "fv_max": 330,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "nurse",
+      "buyer_age": 29,
+      "urgency": "moderate",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 34,
+      "range_id": "1-10",
+      "scenario_label": "young_professional_health_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 300,
+        "buyer_first_offer": 280,
+        "buyer_last_offer": 300,
+        "final_price": 330
+      },
+      "original_latent_facts": {
+        "buyer_profile": "nurse",
+        "buyer_age": 29,
+        "budget_cap": 380,
+        "urgency": "moderate",
+        "knowledge_level": "low",
+        "product": "Apple Watch Series 9 GPS 41mm",
+        "condition": "excellent",
+        "platform": "online marketplace",
+        "seller_type": "individual",
+        "context": "health monitoring for night shifts"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hi, I'm interested in the Apple Watch Series 9. I'm thinking $355 is a fair offer considering its excellent condition.",
+      "price_offered": 355,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "direct"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's voice is steady and clear, projecting confidence in their initial offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! I appreciate your interest. However, I'm asking $318 for the watch. It's a competitive price for its condition.",
+      "price_offered": 318,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "friendly",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The initial greeting is warm, but the tone shifts to a more firm and professional one when discussing the price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see, but I'd still prefer to go a bit lower, maybe $340?",
+      "price_offered": 340,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7273,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hesitant",
+          "questioning"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The rising intonation at the end of the sentence makes the counter-offer sound like a tentative question.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, $300 is the fair market price for this model in excellent condition. You don't need to pay more than that.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7273,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "informative",
+          "confident",
+          "assertive"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker uses a clear, declarative tone as if stating an undeniable fact to support their position.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "That sounds reasonable. But is it really the best price you can offer?",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7273,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "skeptical",
+          "questioning"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "A shift in tone from agreeable to questioning indicates skepticism about the seller's final price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "Yes, $300 is genuinely the market rate for this watch. It's priced right for its condition.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7273,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "reassuring",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The speaker emphasizes the word 'genuinely' and maintains a steady, firm tone to reinforce their claim.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, I just want to make sure I'm making a good purchase here.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7273,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "seeking reassurance"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "A slight sigh and a softer, more contemplative tone suggest resignation and a need for final validation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Absolutely, you won't be overpaying at $300. It's a fair deal for the watch.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340
+        ],
+        "anchor_price": 355,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7273,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "encouraging",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a bright, confident tone and a strong initial word 'Absolutely' to provide reassurance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, I think I'm ready to go with the $300.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340,
+          300
+        ],
+        "anchor_price": 355,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "decisive",
+          "resigned"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's even, conclusive tone indicates a final decision has been made.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, you won't regret it. Let's go ahead with $300.",
+      "price_offered": 300,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340,
+          300
+        ],
+        "anchor_price": 355,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "enthusiastic",
+          "pleased",
+          "relieved"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The word 'Great' is spoken with a sharp, high-pitched, and energetic tone, indicating successful closure.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Thank you. I'm glad we could agree on a fair price.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340,
+          300
+        ],
+        "anchor_price": 355,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "relieved",
+          "pleased"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A warm vocal tone and slightly higher, brighter pitch indicate genuine relief and satisfaction.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "You're welcome! I'm happy we reached a deal. Enjoy your new watch!",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          355,
+          340,
+          300
+        ],
+        "anchor_price": 355,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "friendly"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The high, sing-song pitch and energetic pace convey genuine happiness and good will.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 355,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.7273
+  },
+  "cl": 3,
+  "final_price": 300
+}

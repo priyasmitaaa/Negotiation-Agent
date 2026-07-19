@@ -1,0 +1,449 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1968",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "iPhone 13 128GB",
+      "condition": "like_new",
+      "category": "iphone"
+    },
+    "pricing": {
+      "fair_value": 410,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 435,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 471,
+      "anchor_range_max": 554,
+      "fv_min": 369,
+      "fv_max": 451,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "senior citizen gifting grandchild",
+      "buyer_age": 69,
+      "urgency": "moderate",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 57,
+      "range_id": "21-30",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 410,
+        "buyer_first_offer": 440,
+        "buyer_last_offer": 459,
+        "final_price": 459
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior citizen gifting grandchild",
+        "buyer_age": 69,
+        "budget_cap": 450,
+        "urgency": "moderate",
+        "knowledge_level": "very_low",
+        "product": "iPhone 13 128GB",
+        "condition": "like_new",
+        "platform": "community_bulletin_board",
+        "seller_type": "individual",
+        "context": "graduation gift for grandchild, unsure of model preferences"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I want to buy this iPhone 13 for my grandson. I can offer $490. Is that okay?",
+      "price_offered": 490,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "direct",
+          "tentative"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The statement is direct, but the rising intonation on 'Is that okay?' suggests some tentativeness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Thanks for your offer! We are currently asking $435 for this iPhone 13. It's in like-new condition.",
+      "price_offered": 435,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "energetic"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker's high pitch, fast pace, and bright tone create a cheerful and energetic impression.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Oh, I see. How about $470? I really want to make this gift special.",
+      "price_offered": 470,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "earnest"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The voice becomes softer and more melodic on 'I really want to make this gift special,' conveying an earnest, pleading quality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate that, but honestly, the market rate for this model is $410. You don't need to pay more.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "helpful",
+          "matter-of-fact"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The tone is consistently bright but becomes more direct and factual when stating the price, sounding helpful but firm.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I guess I didn't realize the market price. $450 then?",
+      "price_offered": 450,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "uncertain",
+          "hopeful"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The pace is slightly rushed, and the final offer is delivered with a high-rising terminal, indicating uncertainty and hope.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I understand, but $410 is a fair price for the condition. It's a great deal.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "patient",
+          "reassuring"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker maintains a steady, encouraging tone, using positive framing words like 'fair' and 'great' to be reassuring.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I see your point. Is $430 doable?",
+      "price_offered": 430,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450,
+          430
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.25,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "bargaining",
+          "hesitant"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The phrase 'Is $430 doable?' is spoken with a questioning inflection, showing he is still attempting to bargain but with less conviction.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I appreciate your willingness to adjust, but $410 really is the fair market price.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450,
+          430
+        ],
+        "anchor_price": 490,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.25,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "polite"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "While the opening is polite, the stress on 'really' and the flat, declarative tone on the price indicate a firm, final position.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, if $410 is fair, I think I can agree to that.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450,
+          430,
+          410
+        ],
+        "anchor_price": 490,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The sigh-like quality of 'Alright' and the slow, deliberate pace of the rest of the sentence convey resignation and acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great! $410 is a solid price, and you’re getting a great phone.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450,
+          430,
+          410
+        ],
+        "anchor_price": 490,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "enthusiastic",
+          "congratulatory"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The initial 'Great!' is exclaimed with high energy and pitch, followed by a bright, positive tone to close the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Alright, let's proceed with $410. I'm sure my grandson will love it.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450,
+          430,
+          410,
+          410
+        ],
+        "anchor_price": 490,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resolved",
+          "content"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The voice is steady and the final sentence about his grandson has a warm, positive tone.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Excellent choice! We’ll finalize it at $410. I'm sure your grandson will be thrilled.",
+      "price_offered": 410,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          490,
+          470,
+          450,
+          430,
+          410,
+          410
+        ],
+        "anchor_price": 490,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "enthusiastic",
+          "affirming"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a high pitch and energetic delivery to close the deal on a positive note.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 490,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.75
+  },
+  "cl": 3,
+  "final_price": 410
+}

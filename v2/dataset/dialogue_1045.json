@@ -1,0 +1,453 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1045",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "AirPods Pro 2nd Gen",
+      "condition": "like_new",
+      "category": "audio_device"
+    },
+    "pricing": {
+      "fair_value": 170,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 180,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 195,
+      "anchor_range_max": 230,
+      "fv_min": 153,
+      "fv_max": 187,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "remote worker",
+      "buyer_age": 27,
+      "urgency": "low",
+      "knowledge_level": "moderate"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 33,
+      "range_id": "31-40",
+      "scenario_label": "young_professional_audio_low_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 170,
+        "buyer_first_offer": 200,
+        "buyer_last_offer": 205,
+        "final_price": 215
+      },
+      "original_latent_facts": {
+        "buyer_profile": "remote worker",
+        "buyer_age": 27,
+        "budget_cap": 180,
+        "urgency": "low",
+        "knowledge_level": "moderate",
+        "product": "AirPods Pro 2nd Gen",
+        "condition": "like_new",
+        "platform": "facebook marketplace",
+        "seller_type": "individual",
+        "context": "gym use and work calls"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I'm interested in the AirPods Pro 2nd Gen. Would you accept $210 for them?",
+      "price_offered": 210,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210
+        ],
+        "anchor_price": 210,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "direct",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's clear and direct tone conveys confidence in their opening question and offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "I appreciate the offer, but my asking price is $180. These are in like-new condition.",
+      "price_offered": 180,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210
+        ],
+        "anchor_price": 210,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "professional"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "A steady pace and clear, unwavering tone indicate a firm and professional counter-offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Alright, how about $200? I think it's still a fair deal.",
+      "price_offered": 200,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200
+        ],
+        "anchor_price": 210,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hopeful",
+          "bargaining"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The casual opening and rising pitch on the new offer suggest a hopeful bargaining attempt.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the fair market value for these is $170. I can't accept more than that for a fair deal.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200
+        ],
+        "anchor_price": 210,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "firm",
+          "informative",
+          "resolute"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is resolute and clear, emphasizing finality with the phrase 'I can't accept more'.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, $170 is the market rate? I was unaware of that. Could there be any issue with them at that price?",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "skeptical"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.85,
+        "notes": "A surprised 'Oh' followed by questioning with a rising, skeptical intonation reveals the speaker's state.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "No issues at all, I assure you. They're in excellent condition, and $170 is genuinely fair for them.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker uses a confident and steady tone, emphasizing words like 'assure' to build trust.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, if $170 is what they're going for, I suppose that's reasonable.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The use of 'I suppose' and a slower, lower-pitched delivery indicates reluctant acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Glad you're considering it. $170 is truly the best price for like-new ones.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "encouraging"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A bright, positive tone and slightly quickened pace convey pleasure and encouragement to finalize the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Okay, I think I've made up my mind. $170 it is.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170,
+          170,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "decisive",
+          "resolved"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The clear, downward inflection at the end of the sentence indicates a final, firm decision has been made.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Perfect. You'll be getting a great pair at a fair price.",
+      "price_offered": null,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170,
+          170,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "satisfied",
+          "positive"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The bright, exclamatory 'Perfect' and overall cheerful tone convey satisfaction with the concluded deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Thank you for the clarification and honesty. Let's finalize it at $170.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170,
+          170,
+          170,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "appreciative",
+          "respectful",
+          "final"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker adopts a polite and measured tone that conveys genuine appreciation and respect.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, we have a deal at $170. I'll get the paperwork ready.",
+      "price_offered": 170,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          210,
+          200,
+          170,
+          170,
+          170,
+          170
+        ],
+        "anchor_price": 210,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "relieved",
+          "efficient"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The energetic 'Great' and quickened pace show relief and a desire to efficiently conclude the transaction.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 210,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.75
+  },
+  "cl": 3,
+  "final_price": 170
+}

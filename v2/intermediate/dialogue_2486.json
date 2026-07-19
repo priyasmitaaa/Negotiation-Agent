@@ -1,0 +1,389 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2486",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Motorola Moto G Pure 64GB",
+      "condition": "new",
+      "category": "motorola"
+    },
+    "pricing": {
+      "fair_value": 115,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 122,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 132,
+      "anchor_range_max": 155,
+      "fv_min": 104,
+      "fv_max": 127,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "senior citizen requiring telehealth access",
+      "buyer_age": 71,
+      "urgency": "high",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 67,
+      "range_id": "41-50",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 115,
+        "buyer_first_offer": 140,
+        "buyer_last_offer": 190,
+        "final_price": 190
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior citizen requiring telehealth access",
+        "buyer_age": 71,
+        "budget_cap": 120,
+        "urgency": "high",
+        "knowledge_level": "very_low",
+        "product": "Motorola Moto G Pure 64GB",
+        "condition": "new",
+        "platform": "medical_supply_store",
+        "seller_type": "medical_retailer",
+        "context": "doctor requires smartphone for telehealth follow-up appointment"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I'm looking to buy the Moto G Pure for my telehealth needs. I think $140 is a fair price for its capabilities.",
+      "price_offered": 140,
+      "vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Our asking price for this model is $122. However, let me see if I can provide some clarity on the fair market value.",
+      "price_offered": 122,
+      "seller_vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's first offer is $140 at T1, which is the anchor price against a fair value of $115. The offer is high: $140 > $115 FV → buyer above FV → seller is advantaged. The buyer's VAII from the prior turn is 0.35, a calm state, indicating a standard, non-pressured opening. My decision is UNDECIDED because I need to see how the buyer will react to a counteroffer before I can determine their strategy. I am observing for flexibility. My plan is to use a measured tone, state my asking price of $122, and signal that I am open to discussing the fair market value to guide them downwards."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "How about $130? It's urgent for me to get this for my health appointments.",
+      "price_offered": 130,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I understand the urgency. Just to be straightforward, $115 is the fair market rate for this phone in new condition.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "The buyer's offers are $140 (T1) and now $130 (T3). The anchor is $140 and the fair value is $115. The current offer is still above fair value: $130 > $115 FV → buyer above FV → seller is advantaged. The buyer's VAII is 0.45, a calm state, but they have introduced urgency related to their health, which is a key signal. The anchoring strength is 0.6, so the buyer is still far from the fair value. My decision is to MITIGATE, as I need to correct their high price expectation. My strategy is to use an empathetic tone to acknowledge their urgency, then be direct and introduce the $115 fair value using a market data argument."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I see. But I really need it soon. Maybe we can settle at $125?",
+      "price_offered": 125,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I appreciate your need, but $115 is genuinely the fair price. It's already a great deal.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers are $140 (T1), $130 (T3), and now $125 (T5). The anchor is $140 and the fair value is $115. The current offer remains above fair value: $125 > $115 FV → buyer above FV → seller is advantaged. The buyer's VAII is 0.55, a stressed state, indicating my firm stance on the fair value is creating pressure. The anchoring strength is 0.4; they are moving down but are still trying to settle for more than the fair price. My decision is to MITIGATE because the buyer is still overpaying. My strategy is to use a firm but empathetic tone, reiterate the $115 price, and use a cost empathy argument by calling it the 'genuinely the fair price'."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I understand. I just want to ensure I'm getting a good deal. Can we do $120?",
+      "price_offered": 120,
+      "vaii": {
+        "raw": 0.6,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125,
+          120
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I assure you, $115 is already very fair. That's the market rate for new condition.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125,
+          120
+        ],
+        "anchor_price": 140,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers have been $140 (T1), $130 (T3), $125 (T5), and now $120 (T7). The anchor is $140 and the fair value is $115. The current offer is still above fair value: $120 > $115 FV → buyer above FV → seller is advantaged. The buyer's VAII is 0.6, a stressed state, which suggests they are close to their limit but are trying to get a small win. The anchoring strength is 0.2, so they are very close to the target price. My decision is to MITIGATE and hold firm to the fair value. My strategy is to use a firm and direct tone, repeating the market data and condition grading arguments to signal that $115 is my final offer."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, I see your point. $115 seems reasonable if that's the market rate.",
+      "price_offered": 115,
+      "vaii": {
+        "raw": 0.5,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125,
+          120,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Yes, $115 is a fair deal for both of us given the current market.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125,
+          120,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers have been $140 (T1), $130 (T3), $125 (T5), $120 (T7), and now $115 (T9). The anchor was $140 and the fair value is $115. The buyer's offer has now met the fair value: $115 <= $115 FV → buyer at/below FV → seller is no longer advantaged. The buyer's VAII is 0.5, a stressed state, showing they have conceded to my firm position. The anchoring strength is 0.0, confirming the buyer has accepted the fair value. Decision flips MITIGATE → LEVERAGE because buyer offer $115 crossed fair value $115. My strategy is to close the deal with a direct and measured tone, framing the price as a fair outcome for both of us."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Let’s finalize it at $115 then. I’ll take it for my telehealth needs.",
+      "price_offered": 115,
+      "vaii": {
+        "raw": 0.4,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125,
+          120,
+          115,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, $115 it is. I'm glad we could reach an agreement.",
+      "price_offered": 115,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          140,
+          130,
+          125,
+          120,
+          115,
+          115
+        ],
+        "anchor_price": 140,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer has made offers of $140 (T1), $130 (T3), $125 (T5), $120 (T7), and two at $115 (T9, T11). The anchor was $140 and the fair value is $115. The buyer's offer is at the fair value: $115 <= $115 FV → buyer at/below FV → seller is not advantaged. The buyer's VAII has dropped to 0.4, a calm state, indicating they are settled and ready to buy. The anchoring strength is 0.0, as they are firm on the fair value. My decision is LEVERAGE, as the price is agreed upon. My strategy is to use an empathetic and direct tone to finalize the transaction and reinforce the value of their purchase for their telehealth needs."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 140,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6
+  },
+  "cl": 3,
+  "final_price": 115
+}

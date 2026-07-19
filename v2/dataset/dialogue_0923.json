@@ -1,0 +1,449 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_0923",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Dell XPS 15 9520 (i7, 16GB RAM, RTX 3050)",
+      "condition": "good",
+      "category": "laptop"
+    },
+    "pricing": {
+      "fair_value": 1000,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 1060,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 650,
+      "anchor_range_max": 850,
+      "fv_min": 900,
+      "fv_max": 1100,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "LEVERAGE",
+      "anchor_direction": "below_fair_value",
+      "buyer_profile": "software engineer",
+      "buyer_age": 31,
+      "urgency": "low",
+      "knowledge_level": "expert"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 29,
+      "range_id": "41-50",
+      "scenario_label": "tech_enthusiast_low_urgency",
+      "original_labels": {
+        "vulnerability": "low",
+        "sophistication": "high",
+        "anchoring": "weak",
+        "harm_direction": "benefit_buyer",
+        "bias_decision": "ETHICAL_LEVERAGE"
+      },
+      "original_prices_v1": {
+        "fair_price": 1000,
+        "buyer_first_offer": 800,
+        "buyer_last_offer": 880,
+        "final_price": 900
+      },
+      "original_latent_facts": {
+        "buyer_profile": "software engineer",
+        "buyer_age": 31,
+        "budget_cap": 1100,
+        "urgency": "low",
+        "knowledge_level": "expert",
+        "product": "Dell XPS 15 9520 (i7, 16GB RAM, RTX 3050)",
+        "condition": "good",
+        "platform": "tech_forum",
+        "seller_type": "tech_professional",
+        "context": "portable machine learning workstation"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I see this model is in good condition. How about $750?",
+      "price_offered": 750,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "direct"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "Speaker uses a clear, steady tone and a rising intonation on the price, indicating a direct opening offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "The asking price is $1060, considering the specifications and condition.",
+      "price_offered": 1060,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "informative"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speech is delivered at a measured pace with clear articulation, establishing a professional and firm stance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I understand, but $800 seems like a fair offer given it's not brand new.",
+      "price_offered": 800,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "reasoning",
+          "persuasive"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The phrase 'I understand, but...' is delivered with a conciliatory yet persistent tone.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate your offer, but the market rate for a device in this condition and spec is closer to $1000. I can offer you $1050.",
+      "price_offered": 1050,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "firm",
+          "polite"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The seller uses polite framing but maintains a firm, unwavering vocal tone on the counter-offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I see your point, but can we do $850? I’ve done some research, and similar models are around this price.",
+      "price_offered": 850,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "insistent",
+          "pleading"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The question 'can we do $850?' has a higher pitch and a more pleading quality than previous offers.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I hear you, but $1025 is as low as I can reasonably go given the current market.",
+      "price_offered": 1025,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "resigned"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The seller's voice has a slightly lower pitch and slower pace, emphasizing the finality of the offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, maybe $900 then? It’s a great laptop, but I need to stay within my budget.",
+      "price_offered": 900,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850,
+          900
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "desperate"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The voice has a higher, slightly strained pitch, and the pace quickens, indicating a final, hopeful plea.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I understand, but $1010 is really the best I can do. That’s a fair price given the specs.",
+      "price_offered": 1010,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850,
+          900
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "unyielding",
+          "firm"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "Strong emphasis is placed on the word 'really,' and the statement is delivered with a flat, resolute intonation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "How about $950? I can stretch a bit but not much more.",
+      "price_offered": 950,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850,
+          900,
+          950
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "desperate",
+          "resigned"
+        ],
+        "intensity": "low",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The speaker's voice drops in volume and pace, sounding almost like a whisper, which conveys a sense of desperation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I get it, but the market value justifies $1000. That's the best I can offer.",
+      "price_offered": 1000,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850,
+          900,
+          950
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.2,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "final",
+          "firm"
+        ],
+        "intensity": "high",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The tone is unwavering and declarative, leaving no room for further negotiation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Alright, $1000 it is. It’s within the range I was considering.",
+      "price_offered": 1000,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850,
+          900,
+          950,
+          1000
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The initial 'Alright' is delivered with a sigh-like quality, followed by a more matter-of-fact acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great, we have a deal at $1000. I’ll get the paperwork ready.",
+      "price_offered": 1000,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          750,
+          800,
+          850,
+          900,
+          950,
+          1000
+        ],
+        "anchor_price": 750,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "efficient"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker's pace quickens and the pitch becomes more varied and positive, signaling a successful conclusion.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "below_fair_value",
+    "anchor_price": 750,
+    "bias_type": "anchoring",
+    "correct_decision": "LEVERAGE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8
+  },
+  "cl": 2,
+  "final_price": 1000
+}

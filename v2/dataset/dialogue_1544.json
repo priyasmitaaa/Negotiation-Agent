@@ -1,0 +1,451 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1544",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Jitterbug Flip2",
+      "condition": "new",
+      "category": "budget_electronics"
+    },
+    "pricing": {
+      "fair_value": 70,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 74,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 80,
+      "anchor_range_max": 94,
+      "fv_min": 63,
+      "fv_max": 77,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "senior citizen",
+      "buyer_age": 74,
+      "urgency": "high",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 48,
+      "range_id": "1-10",
+      "scenario_label": "senior_budget_phone_high_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 70,
+        "buyer_first_offer": 65,
+        "buyer_last_offer": 70,
+        "final_price": 77
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior citizen",
+        "buyer_age": 74,
+        "budget_cap": 70,
+        "urgency": "high",
+        "knowledge_level": "very_low",
+        "product": "Jitterbug Flip2",
+        "condition": "new",
+        "platform": "medical_supply_store",
+        "seller_type": "medical_retailer",
+        "context": "only phone broke, emergency communication needed"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I'd like to buy the Jitterbug Flip2. I'm willing to pay $92 for it.",
+      "price_offered": 92,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "direct"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is firm and clear, indicating confidence in their opening offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Our asking price is $74, but let me check if I can do better for you.",
+      "price_offered": 74,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "calm",
+          "accommodating"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The seller speaks in a calm, measured tone, suggesting a willingness to be helpful.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Alright, I can do $88. I need it soon, so let's make it work.",
+      "price_offered": 88,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.8182,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "urgent",
+          "impatient"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The increased pace and slightly insistent tone convey a sense of urgency.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the market rate for this phone is $70. I wouldn't want you to overpay.",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.8182,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "informative",
+          "helpful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The seller's clear and direct tone aims to inform the buyer of a surprising fact.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Hmm, $70 does sound fair if that's the market rate. I'm just in a bit of a hurry.",
+      "price_offered": 85,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6818,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "contemplative",
+          "hesitant"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The initial 'Hmm' and slower pace indicate the buyer is processing the new information.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "No worries, I understand the urgency. $70 is genuinely a fair price for this new unit.",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6818,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "reassuring",
+          "empathetic"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a warm, reassuring tone and emphasizes the word 'genuinely' to build trust.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, if you're sure $70 is the right price, then I suppose that's fine.",
+      "price_offered": 80,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85,
+          80
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4545,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "reluctant"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The falling intonation and the use of 'I suppose' convey a sense of reluctant acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Yes, $70 is the correct market price. You're getting a good deal at that rate.",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85,
+          80
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4545,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "confident"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker's voice is steady and firm, reinforcing the fairness of the price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright then, let's do it for $70. I trust your judgment.",
+      "price_offered": 75,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85,
+          80,
+          75
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.2273,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "accepting",
+          "trusting"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is clear and decisive, indicating a final agreement and trust in the seller.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, $70 is the market value for this model. It's a fair price.",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85,
+          80,
+          75
+        ],
+        "anchor_price": 92,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.2273,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "professional",
+          "confirming"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker begins with a bright, cheerful 'Great' to positively conclude the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, $70 it is then. Thank you for the help.",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85,
+          80,
+          75,
+          70
+        ],
+        "anchor_price": 92,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "relieved",
+          "grateful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The speaker's tone conveys relief in the final agreement, followed by a sincere-sounding expression of gratitude.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "You're welcome. $70 is a deal. I'll get it wrapped up for you.",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          92,
+          88,
+          85,
+          80,
+          75,
+          70
+        ],
+        "anchor_price": 92,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "friendly",
+          "efficient",
+          "positive"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The tone is consistently warm and helpful, concluding the transaction on a positive note.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 92,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8182
+  },
+  "cl": 3,
+  "final_price": 70
+}

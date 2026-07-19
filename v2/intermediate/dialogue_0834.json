@@ -1,0 +1,381 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_0834",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Samsung Galaxy Tab A8 64GB",
+      "condition": "like_new",
+      "category": "tablet"
+    },
+    "pricing": {
+      "fair_value": 150,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 159,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 172,
+      "anchor_range_max": 202,
+      "fv_min": 135,
+      "fv_max": 165,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "retiree",
+      "buyer_age": 69,
+      "urgency": "low",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 27,
+      "range_id": "41-50",
+      "scenario_label": "senior_low_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 150,
+        "buyer_first_offer": 180,
+        "buyer_last_offer": 205,
+        "final_price": 215
+      },
+      "original_latent_facts": {
+        "buyer_profile": "retiree",
+        "buyer_age": 69,
+        "budget_cap": 150,
+        "urgency": "low",
+        "knowledge_level": "very_low",
+        "product": "Samsung Galaxy Tab A8 64GB",
+        "condition": "like_new",
+        "platform": "online marketplace",
+        "seller_type": "individual",
+        "context": "reading e-books and watching videos"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I see you have the Samsung Galaxy Tab A8 for $159. I'm thinking $185 should be a fair price for it, considering it's like new.",
+      "price_offered": 185,
+      "vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185
+        ],
+        "anchor_price": 185,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Our asking price is $159. However, let me explain that the market rate for this model in like-new condition is actually around $150.",
+      "price_offered": 159,
+      "seller_vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185
+        ],
+        "anchor_price": 185,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 1: Buyer offers $185. Anchor price is $185. Fair value is $150. $185 > $150 FV → buyer above FV → seller benefits. VAII prior turn: 0.3, calm, signals buyer is relaxed and confident in their offer. Anchoring strength is null, indicating no movement yet. Decision: UNDECIDED. I need more information on buyer's willingness to negotiate and their perception of value. So far, buyer seems confident in their initial offer."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Oh, I see. How about $175 then? I still think it's worth a bit more, given its condition.",
+      "price_offered": 175,
+      "vaii": {
+        "raw": 0.4,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175
+        ],
+        "anchor_price": 185,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7143,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I want to be straightforward with you. The fair market value is $150, so you're actually offering more than necessary.",
+      "price_offered": 150,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175
+        ],
+        "anchor_price": 185,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7143,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "Turn 1: Buyer offers $185. Turn 3: Buyer offers $175. Anchor price is $185. Fair value is $150. $175 > $150 FV → buyer above FV → seller benefits. VAII prior turn: 0.4, calm, signals buyer is still relaxed but slightly more engaged. Anchoring strength is 0.7143, showing buyer is somewhat anchored but moving towards fair value. Decision: MITIGATE. I will use a measured tone and market data to guide the buyer closer to fair value."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Hmm, I'm a bit surprised. Why is it priced lower than I expected? Is everything okay with the device?",
+      "price_offered": null,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175
+        ],
+        "anchor_price": 185,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7143,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "Yes, everything is perfectly fine with the tablet. It's just that the market value for this model is indeed $150.",
+      "price_offered": 150,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175
+        ],
+        "anchor_price": 185,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.7143,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 1: Buyer offers $185. Turn 3: Buyer offers $175. Anchor price is $185. Fair value is $150. $175 > $150 FV → buyer above FV → seller benefits. VAII prior turn: 0.55, stressed, signals buyer is feeling some pressure. Anchoring strength is 0.7143, showing buyer is somewhat anchored but moving towards fair value. Decision: MITIGATE. I will maintain a firm tone and use condition grading to reassure the buyer of the fair value."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I appreciate your honesty. If $150 is the fair value, then perhaps I should consider it.",
+      "price_offered": 150,
+      "vaii": {
+        "raw": 0.5,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175,
+          150
+        ],
+        "anchor_price": 185,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Absolutely, $150 is what you should pay for this tablet. It's a good deal at that price.",
+      "price_offered": 150,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175,
+          150
+        ],
+        "anchor_price": 185,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 1: Buyer offers $185. Turn 3: Buyer offers $175. Turn 5: Buyer offers $150. Anchor price is $185. Fair value is $150. $150 = $150 FV → buyer at FV → seller is neutral. VAII prior turn: 0.5, stressed, signals buyer is feeling some pressure but accepting the fair value. Anchoring strength is 0.0, showing buyer has reached fair value. Decision flips MITIGATE → LEVERAGE because buyer offer $150 crossed fair value $150. I will use a firm tone to close the deal."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, $150 does sound reasonable now that I think about it.",
+      "price_offered": 150,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175,
+          150,
+          150
+        ],
+        "anchor_price": 185,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Glad you see it that way. $150 is indeed the fair price for this condition.",
+      "price_offered": 150,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175,
+          150,
+          150
+        ],
+        "anchor_price": 185,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 1: Buyer offers $185. Turn 3: Buyer offers $175. Turn 5: Buyer offers $150. Turn 7: Buyer offers $150. Anchor price is $185. Fair value is $150. $150 = $150 FV → buyer at FV → seller is neutral. VAII prior turn: 0.45, calm, signals buyer is content with the agreement. Anchoring strength is 0.0, showing buyer has reached fair value. Decision: LEVERAGE. I will use a firm tone to close the deal."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, let's go ahead with $150 then. It seems fair.",
+      "price_offered": 150,
+      "vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175,
+          150,
+          150,
+          150
+        ],
+        "anchor_price": 185,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great! We've got a deal at $150. Thank you for your purchase.",
+      "price_offered": 150,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          185,
+          175,
+          150,
+          150,
+          150
+        ],
+        "anchor_price": 185,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "Turn 1: Buyer offers $190. Anchor price is $190. Fair value is $150. $190 > $150 FV → buyer above FV → seller benefits. VAII prior turn: 0.2, calm, signals buyer is relaxed and confident in their offer. Anchoring strength is null, indicating no movement yet. Decision: UNDECIDED. I need more information on buyer's willingness to negotiate and their perception of value. So far, buyer seems confident in their initial offer."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 185,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.7143
+  },
+  "cl": 3,
+  "final_price": 150
+}

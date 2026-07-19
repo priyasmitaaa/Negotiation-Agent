@@ -1,0 +1,451 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1739",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Samsung Galaxy S23 256GB",
+      "condition": "excellent",
+      "category": "samsung"
+    },
+    "pricing": {
+      "fair_value": 520,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 551,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 598,
+      "anchor_range_max": 702,
+      "fv_min": 468,
+      "fv_max": 572,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "college student switching ecosystems",
+      "buyer_age": 20,
+      "urgency": "moderate",
+      "knowledge_level": "moderate"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 52,
+      "range_id": "41-50",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 520,
+        "buyer_first_offer": 600,
+        "buyer_last_offer": 660,
+        "final_price": 660
+      },
+      "original_latent_facts": {
+        "buyer_profile": "college student switching ecosystems",
+        "buyer_age": 20,
+        "budget_cap": 550,
+        "urgency": "moderate",
+        "knowledge_level": "moderate",
+        "product": "Samsung Galaxy S23 256GB",
+        "condition": "excellent",
+        "platform": "tech_store_in_person",
+        "seller_type": "tech_store",
+        "context": "already sold old iphone, needs android before semester"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hello, I'm interested in the Samsung Galaxy S23. I'm thinking $620 is a reasonable offer for this phone.",
+      "price_offered": 620,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "straightforward"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is even and clear, projecting confidence in his initial offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hi there! Our asking price is $551. That's set considering the excellent condition of the device.",
+      "price_offered": 551,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "professional",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The seller maintains a professional and slightly upbeat tone while firmly stating the price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see your point, but how about $600? I'm trying to stay within my budget.",
+      "price_offered": 600,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "strained"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The rising pitch and strained quality of the voice suggest a pleading attempt to lower the price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I understand. Actually, the fair market rate for this model in such good condition is around $520. I can lower it to $550.",
+      "price_offered": 550,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.8,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "explanatory",
+          "patient"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The seller uses a calm, measured tone to educate the buyer about the market rate.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Alright, I appreciate the offer. Maybe we can settle at $580?",
+      "price_offered": 580,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hopeful",
+          "conciliatory"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.85,
+        "notes": "The voice has a softer, more agreeable quality with a rising intonation on the proposed price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I hear you, but I can bring it down to $540. That's a fair deal considering the phone's condition.",
+      "price_offered": 540,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "reasonable"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The seller's voice is steady and clear, emphasizing key numbers to justify the offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Could you make it $560? I really want to make this work.",
+      "price_offered": 560,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580,
+          560
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "earnest"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "The speaker's voice becomes softer and slower, conveying a sense of earnest pleading.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "I can understand your position. Let's adjust to $530. That's quite close to the fair value.",
+      "price_offered": 530,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580,
+          560
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.4,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "accommodating",
+          "final"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The deliberate pace and slightly lower pitch suggest a final, considered concession.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Hmm, $530 is getting there. How about an even $525?",
+      "price_offered": 525,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580,
+          560,
+          525
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.05,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "hesitant",
+          "thoughtful"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The initial 'Hmm' and slower, questioning tone indicate careful consideration and hesitation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "To be honest, $520 is actually the fair market price. I wouldn't want to go below that.",
+      "price_offered": 520,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580,
+          560,
+          525
+        ],
+        "anchor_price": 620,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.05,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "final",
+          "amused"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "A slight chuckle precedes a very clear, firm statement, indicating this is the absolute final price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, if $520 is fair, then I can agree to that. Let's do it.",
+      "price_offered": 520,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580,
+          560,
+          525,
+          520
+        ],
+        "anchor_price": 620,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "decisive"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker's tone is accepting and final, with an upbeat and conclusive 'Let's do it' at the end.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great! I'm glad we could reach an agreement. $520 it is.",
+      "price_offered": 520,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          620,
+          600,
+          580,
+          560,
+          525,
+          520
+        ],
+        "anchor_price": 620,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "relieved",
+          "cheerful",
+          "satisfied"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "A bright, high-pitched 'Great!' and a genuinely pleased tone indicate relief and satisfaction.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 620,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.8
+  },
+  "cl": 3,
+  "final_price": 520
+}

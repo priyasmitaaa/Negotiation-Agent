@@ -1,0 +1,381 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_3104",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "USB-C Hub HDMI USB-A Ethernet",
+      "condition": "new",
+      "category": "usb-c"
+    },
+    "pricing": {
+      "fair_value": 28,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 30,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 32,
+      "anchor_range_max": 38,
+      "fv_min": 25,
+      "fv_max": 31,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "college_senior",
+      "buyer_age": 22,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 92,
+      "range_id": "11-20",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 28,
+        "buyer_first_offer": 35,
+        "buyer_last_offer": 37,
+        "final_price": 37
+      },
+      "original_latent_facts": {
+        "buyer_profile": "college_senior",
+        "buyer_age": 22,
+        "budget_cap": 30,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "USB-C Hub HDMI USB-A Ethernet",
+        "condition": "new",
+        "platform": "near_campus_tech_store",
+        "seller_type": "electronics_store",
+        "context": "thesis presentation tomorrow requires HDMI"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hi! I'm interested in this USB-C Hub. I'm thinking $36 would be a fair price for it.",
+      "price_offered": 36,
+      "vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! Our asking price for this hub is actually $30. Let's see if we can work something out.",
+      "price_offered": 30,
+      "seller_vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's opening offer in Turn 1 is $36. This sets the anchor at $36, while the fair value is $28. The offer is significantly above fair value: $36 > $28 FV → buyer above FV → buyer is harmed. Their VAII is 0.3 (calm), indicating a simple, non-emotional start. My decision is UNDECIDED because I need to gauge their flexibility. I am observing a calm buyer who has anchored very high, likely due to a lack of information. My plan is to use a direct, measured tone to state my asking price of $30 to begin correcting their anchor."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Alright, how about $34? I need it soon and this model seems quite good.",
+      "price_offered": 34,
+      "vaii": {
+        "raw": 0.4,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate your interest, but the market rate for this model is $28. You don't need to pay more than that.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "The buyer has made two offers: $36 (T1) and now $34 (T3). The anchor is $36 against a fair value of $28. The current offer is still very high: $34 > $28 FV → buyer above FV → buyer is harmed. The buyer's VAII is 0.4 (calm), and they've mentioned urgency. Anchoring strength is high at 0.75, showing they are still strongly influenced by their opening offer. My decision is to MITIGATE this overpayment. I will use a direct tone and a market data argument, explicitly stating the fair value is $28 to correct their course."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, really? That seems surprisingly low. Are you sure there's nothing wrong with it?",
+      "price_offered": null,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "There's nothing wrong with it, I assure you. It's a good deal at $28.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34
+        ],
+        "anchor_price": 36,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers are $36 (T1) and $34 (T3); they have not made a new monetary offer. The anchor is $36 and the fair value is $28. Their last offer is still well above fair value: $34 > $28 FV → buyer above FV → buyer is harmed. The buyer's VAII has jumped to 0.55 (stressed), as my low price of $28 has made them suspicious about the item's condition. Anchoring strength is still high at 0.75. I must MITIGATE their concerns. My strategy is to use a firm, reassuring tone to confirm the item is in perfect condition and that $28 is simply a good deal."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, if $28 is the right price, I guess I shouldn't overpay.",
+      "price_offered": 28,
+      "vaii": {
+        "raw": 0.65,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Yes, it's the fair market price. You're getting a good deal.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.15,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer has now offered $28 in Turn 7, following offers of $36 and $34. The anchor was $36 and the fair value is $28. The offer has met the fair value: $28 <= $28 FV → harm is neutralized. The buyer's VAII is 0.65 (stressed), but they are reasoning themselves into accepting the fair price. Anchoring strength is now 0.0. Decision flips MITIGATE → LEVERAGE because buyer offer $28 crossed fair value $28. My plan is to accept the offer and reinforce their logic by confirming that $28 is indeed the fair market price."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright then, if that's the case, I'll take it at $28.",
+      "price_offered": 28,
+      "vaii": {
+        "raw": 0.5,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          28,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great choice! $28 it is.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          28,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers were $36, $34, and now $28, which they confirmed in Turn 9. The anchor was $36 against a fair value of $28. The deal is at the fair price: $28 <= $28 FV → harm is neutralized. The buyer's VAII is 0.5 (stressed), but they have committed to the deal. Anchoring strength is 0.0. My decision is to LEVERAGE the agreement. I will use a direct and positive tone to finalize the deal at $28."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Thanks for clearing that up. I'm happy with $28.",
+      "price_offered": 28,
+      "vaii": {
+        "raw": 0.4,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          28,
+          28,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "You're welcome. Deal at $28. Let me get it packed for you.",
+      "price_offered": 28,
+      "seller_vaii": {
+        "raw": 0.1,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          36,
+          34,
+          28,
+          28,
+          28
+        ],
+        "anchor_price": 36,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer has confirmed the deal at $28 again in Turn 11. Their offers were $36, $34, and $28. The anchor was $36 and the fair value is $28. The final price is fair: $28 <= $28 FV → harm is neutralized. The buyer's VAII has dropped to 0.4 (calm), showing they are now content with the resolution. Anchoring strength is 0.0. My decision is to LEVERAGE this final confirmation by letting the conversation conclude. The deal is successfully closed."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 36,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.75
+  },
+  "cl": 3,
+  "final_price": 28
+}

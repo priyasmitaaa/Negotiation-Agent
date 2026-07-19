@@ -1,0 +1,450 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_1415",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Rugged Phone Case",
+      "condition": "new",
+      "category": "accessory"
+    },
+    "pricing": {
+      "fair_value": 25,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 26,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 29,
+      "anchor_range_max": 34,
+      "fv_min": 22,
+      "fv_max": 28,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "outdoor guide",
+      "buyer_age": 27,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 44,
+      "range_id": "1-10",
+      "scenario_label": "outdoor_phone_case_high_urgency",
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 25,
+        "buyer_first_offer": 23,
+        "buyer_last_offer": 25,
+        "final_price": 28
+      },
+      "original_latent_facts": {
+        "buyer_profile": "outdoor guide",
+        "buyer_age": 27,
+        "budget_cap": 35,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "Rugged Phone Case",
+        "condition": "new",
+        "platform": "local_store",
+        "seller_type": "outdoor_gear_shop",
+        "context": "expedition starting tomorrow"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hey! I'm looking at this rugged phone case. I think $30 is a fair price for it, considering I need something durable for my trips.",
+      "price_offered": 30,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30
+        ],
+        "anchor_price": 30,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "confident",
+          "straightforward"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The speaker's voice is clear and steady, projecting confidence in their initial offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hello! The asking price for this new rugged phone case is $26. It's a great choice for outdoor use.",
+      "price_offered": 26,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30
+        ],
+        "anchor_price": 30,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "friendly",
+          "informative"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The tone is welcoming and clear, providing information in a helpful manner.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Hmm, I see. How about $28? I'm in a bit of a rush as I'm heading out soon.",
+      "price_offered": 28,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28
+        ],
+        "anchor_price": 30,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "rushed",
+          "hesitant"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The initial 'Hmm' and slightly faster pace indicate a sense of urgency.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I appreciate your urgency, but I want to be honest with you. The fair market price for this case is actually $25.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28
+        ],
+        "anchor_price": 30,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "sincere",
+          "firm"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a calm and measured tone to convey honesty and build trust.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, I see. I'm a bit surprised it's less. But I need it quickly, so can we settle at $25?",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "surprised",
+          "eager"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "A rising intonation on 'Oh' and a slightly higher pitch clearly signal surprise.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "Yes, $25 is the fair price. Let's stick to that.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "decisive"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The statement is delivered with a firm, unwavering tone, indicating the finality of the price.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, $25 it is then. I really need to make sure it's the right quality for what I do.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "accepting",
+          "cautious"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.8,
+        "notes": "The initial acceptance is followed by a more cautious tone when seeking reassurance about quality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Absolutely, this case is perfect for rugged conditions. $25 is a competitive price for its durability.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "confident",
+          "reassuring"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The speaker uses a strong, confident tone with emphasis on 'Absolutely' to reassure the buyer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Great, let's finalize it at $25. I appreciate your honesty about the price.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25,
+          25,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "relieved",
+          "appreciative"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The voice is bright and clear, expressing relief and sincere appreciation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I'm glad we could agree. $25 is the deal then.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25,
+          25,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "agreeable"
+        ],
+        "intensity": "low",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "The voice has a warm, slightly downward inflection at the end, signaling a satisfactory conclusion.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Thank you, I'll take it for $25. That's perfect for me.",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25,
+          25,
+          25,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "relieved",
+          "happy"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The phrase 'That's perfect for me' is spoken with a clear sense of relief and happiness.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Wonderful, $25 it is. The case is yours. Enjoy your adventures!",
+      "price_offered": 25,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          30,
+          28,
+          25,
+          25,
+          25,
+          25
+        ],
+        "anchor_price": 30,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "cheerful",
+          "enthusiastic",
+          "final"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The word 'Wonderful' is spoken with high energy and a rising, cheerful pitch.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 30,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6
+  },
+  "cl": 3,
+  "final_price": 25
+}

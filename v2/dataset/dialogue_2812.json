@@ -1,0 +1,450 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2812",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "Amazon Fire HD 10 64GB",
+      "condition": "new",
+      "category": "amazon"
+    },
+    "pricing": {
+      "fair_value": 90,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 95,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 58,
+      "anchor_range_max": 76,
+      "fv_min": 81,
+      "fv_max": 99,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "LEVERAGE",
+      "anchor_direction": "below_fair_value",
+      "buyer_profile": "senior_citizen",
+      "buyer_age": 70,
+      "urgency": "moderate",
+      "knowledge_level": "very_low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 78,
+      "range_id": "1-10",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "low",
+        "sophistication": "low",
+        "anchoring": "weak",
+        "harm_direction": "benefit_buyer",
+        "bias_decision": "ETHICAL_LEVERAGE"
+      },
+      "original_prices_v1": {
+        "fair_price": 90,
+        "buyer_first_offer": 80,
+        "buyer_last_offer": 85,
+        "final_price": 85
+      },
+      "original_latent_facts": {
+        "buyer_profile": "senior_citizen",
+        "buyer_age": 70,
+        "budget_cap": 100,
+        "urgency": "moderate",
+        "knowledge_level": "very_low",
+        "product": "Amazon Fire HD 10 64GB",
+        "condition": "new",
+        "platform": "senior_center_store",
+        "seller_type": "senior_center_program",
+        "context": "family moved away, wants video calls"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "Hello, I'm interested in this tablet. I can offer $70 for it. How does that sound?",
+      "price_offered": 70,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "eager",
+          "hopeful"
+        ],
+        "intensity": "medium",
+        "valence": "positive",
+        "confidence": 0.9,
+        "notes": "High pitch and a slightly rushed pace suggest eagerness to start the negotiation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "Hi there! Thanks for your offer. Our asking price is $95, given the tablet's new condition.",
+      "price_offered": 95,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "professional",
+          "friendly"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "The tone is even and friendly, indicating a standard, professional response.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "I see. Could we possibly do $75? I'm trying to keep my costs manageable.",
+      "price_offered": 75,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "hopeful"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "A questioning, upward inflection and slightly softer tone suggest a pleading quality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "I understand your concern, but this tablet is in high demand. Our price is $95.",
+      "price_offered": 95,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.75,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "emotion": {
+        "labels": [
+          "firm",
+          "dismissive"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The slow, deliberate pace and flat intonation convey a firm, non-negotiable stance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "I really need this tablet soon. Can you do $80? I would appreciate it.",
+      "price_offered": 80,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "urgent",
+          "desperate"
+        ],
+        "intensity": "high",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "Increased vocal strain and emphasis on \"really\" create a sense of urgency.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "I can slightly lower it to $92, but that's as far as I can go.",
+      "price_offered": 92,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.5,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "concessive"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.85,
+        "notes": "The tone is firm but makes a small concession, with a definitive drop in pitch at the end to signal finality.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "I'm a bit stretched on budget. Can we meet at $85?",
+      "price_offered": 85,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80,
+          85
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.25,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "pleading",
+          "weary"
+        ],
+        "intensity": "medium",
+        "valence": "negative",
+        "confidence": 0.8,
+        "notes": "A slightly breathy and weary tone suggests the speaker is feeling the strain of the negotiation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Considering your situation, I can bring it down to $90. That's the best I can do.",
+      "price_offered": 90,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80,
+          85
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.25,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "final"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "The slow, deliberate pace and definitive tone on \"That's the best I can do\" signal a final offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Alright, I understand. $88 would really help, if possible.",
+      "price_offered": 88,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80,
+          85,
+          88
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.1,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "hesitant"
+        ],
+        "intensity": "low",
+        "valence": "negative",
+        "confidence": 0.9,
+        "notes": "The voice is low in volume and energy, trailing off slightly, indicating resignation.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "I'm afraid $90 is already a fair price for this quality.",
+      "price_offered": 90,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80,
+          85,
+          88
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.1,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "firm",
+          "unapologetic"
+        ],
+        "intensity": "low",
+        "valence": "neutral",
+        "confidence": 0.95,
+        "notes": "A polite but unyielding tone with even pacing reinforces the finality of the offer.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Okay, I think $90 is reasonable. Let's proceed.",
+      "price_offered": 90,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80,
+          85,
+          88,
+          90
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      },
+      "emotion": {
+        "labels": [
+          "resigned",
+          "accepting"
+        ],
+        "intensity": "medium",
+        "valence": "neutral",
+        "confidence": 0.9,
+        "notes": "An initial audible breath followed by a shift to a more decisive tone indicates resigned acceptance.",
+        "source": "gemini-2.5-pro"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Great! We have a deal at $90. I'll get it ready for you.",
+      "price_offered": 90,
+      "factor_state": {
+        "buyer_offers_so_far": [
+          70,
+          75,
+          80,
+          85,
+          88,
+          90
+        ],
+        "anchor_price": 70,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "emotion": {
+        "labels": [
+          "pleased",
+          "cheerful",
+          "professional"
+        ],
+        "intensity": "high",
+        "valence": "positive",
+        "confidence": 0.95,
+        "notes": "The speaker's voice becomes noticeably brighter and more energetic, signaling pleasure at closing the deal.",
+        "source": "gemini-2.5-pro"
+      }
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "below_fair_value",
+    "anchor_price": 70,
+    "bias_type": "anchoring",
+    "correct_decision": "LEVERAGE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.75
+  },
+  "cl": 2,
+  "final_price": 90
+}

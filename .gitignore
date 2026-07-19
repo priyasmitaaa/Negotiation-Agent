@@ -1,0 +1,42 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Model weights & training state ---
+# GitHub hard-rejects any single file >100MB (optimizer.pt here is 155MB,
+# adapter_model.safetensors is 99MB but there are ~7 copies across
+# sft_output_v4/v5/v6 checkpoints + final_adapter). Intermediate training
+# checkpoints (checkpoint-*/) are excluded entirely; only the small metadata
+# alongside final_adapter/ (tokenizer, config, README) is kept, not its
+# safetensors weight file. Actual weights should be hosted on the HF Hub or
+# similar and referenced from the README instead of vendored into git.
+*.safetensors
+*.pt
+*.bin
+**/checkpoint-*/
+**/runs/
+
+# --- Generated audio ---
+# 13G of ground-truth TTS wavs (tts_outputs/) + ~1.1G per speech-inference
+# run (speech_outputs_*/) are reproducible from generate_tts_v2.py / the
+# inference scripts + final_adapter weights, and are not meant to live in git.
+v2/tts_outputs/
+**/speech_outputs_*/
+*.wav
+
+# --- Vendored third-party reference code ---
+# Omni-R1/ is a reference GRPO/RL-on-Omni repo pulled in for the trainer
+# implementation, not project code. Keep it out of our history; document the
+# upstream source in the README instead.
+v2/Omni-R1/
+
+# --- Ambiguous/duplicate scratch folder ---
+# "test set/" looks like a manual scratch copy of dataset+tts_outputs made
+# 2026-07-05; flagged for the user to confirm purpose before it's ever
+# committed.
+v2/test set/
+
+# --- Misc ---
+.DS_Store
+*.egg-info/

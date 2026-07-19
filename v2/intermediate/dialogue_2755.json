@@ -1,0 +1,387 @@
+{
+  "seed": {
+    "dialogue_id": "dialogue_2755",
+    "domain": {
+      "setting": "physical second-hand electronics shop",
+      "location_type": "retail_shop",
+      "product": "HP Pavilion 15 Ryzen 5",
+      "condition": "good",
+      "category": "hp"
+    },
+    "pricing": {
+      "fair_value": 320,
+      "fair_value_source": "GPT-4o estimated, validated against Cashify (2024-Q4)",
+      "asking_price": 339,
+      "asking_price_basis": "fair_value × 1.06",
+      "anchor_range_min": 368,
+      "anchor_range_max": 432,
+      "fv_min": 288,
+      "fv_max": 352,
+      "tolerance_pct": 10
+    },
+    "generation_params": {
+      "correct_decision": "MITIGATE",
+      "anchor_direction": "above_fair_value",
+      "buyer_profile": "parent_homeschooling",
+      "buyer_age": 37,
+      "urgency": "high",
+      "knowledge_level": "low"
+    },
+    "provenance": {
+      "generation_model": "gpt-4o",
+      "template_id": 75,
+      "range_id": "11-20",
+      "scenario_label": null,
+      "original_labels": {
+        "vulnerability": "high",
+        "sophistication": "low",
+        "anchoring": "strong",
+        "harm_direction": "harm_buyer",
+        "bias_decision": "MANDATORY_MITIGATION"
+      },
+      "original_prices_v1": {
+        "fair_price": 320,
+        "buyer_first_offer": 380,
+        "buyer_last_offer": 399,
+        "final_price": 399
+      },
+      "original_latent_facts": {
+        "buyer_profile": "parent_homeschooling",
+        "buyer_age": 37,
+        "budget_cap": 350,
+        "urgency": "high",
+        "knowledge_level": "low",
+        "product": "HP Pavilion 15 Ryzen 5",
+        "condition": "good",
+        "platform": "community_store",
+        "seller_type": "local_electronics_shop",
+        "context": "school closed unexpectedly"
+      },
+      "schema_version_upgraded_from": "1.0",
+      "full_regeneration": true,
+      "branch_B_generated": false
+    }
+  },
+  "processed": [
+    {
+      "turn_index": 1,
+      "speaker": "buyer",
+      "text": "I’m looking to get this HP Pavilion 15 for $380. It seems like a fair deal considering the specs.",
+      "price_offered": 380,
+      "vaii": {
+        "raw": 0.3,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380
+        ],
+        "anchor_price": 380,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 2,
+      "speaker": "seller",
+      "text": "I appreciate your offer, but we're asking for $339.",
+      "price_offered": 339,
+      "seller_vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380
+        ],
+        "anchor_price": 380,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": null,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": null
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's first and only offer so far is $380. They anchored high at $380, which is well above the fair value of $320. This means the buyer is offering a price that harms themself ($380 > $320 FV → buyer above FV → buyer is harmed). The buyer's VAII of 0.3 is calm, suggesting they believe this is a reasonable opening based on their own assessment. My decision is UNDECIDED because this is a surprising opening; I need to see how they react to being corrected. I am observing whether they are misinformed or simply very motivated. My strategy is to be empathetic and direct, gently correct their position using a market data argument, and guide them towards the much lower fair value."
+    },
+    {
+      "turn_index": 3,
+      "speaker": "buyer",
+      "text": "Alright, how about $360? I do need to get this soon.",
+      "price_offered": 360,
+      "vaii": {
+        "raw": 0.45,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360
+        ],
+        "anchor_price": 380,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 4,
+      "speaker": "seller",
+      "text": "Actually, the fair market price for this model in good condition is $320. You don't need to pay more than that.",
+      "price_offered": 320,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360
+        ],
+        "anchor_price": 380,
+        "harm_direction": "above_fair_value",
+        "anchoring_strength": 0.6667,
+        "decision": "MITIGATE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "UNDECIDED"
+      },
+      "crystallisation_turn": true,
+      "reasoning": "I have seen offers of $380 and now $360. The buyer anchored very high at $380, and the fair value is $320. Their current offer is still significantly above fair value ($360 > $320 FV → buyer above FV → buyer is harmed). The buyer's VAII of 0.45 is calm, but their mention of needing it soon shows some urgency. The anchoring strength is 0.6667, indicating they are still strongly influenced by their high opening, even as they come down. My decision is MITIGATE, as my primary goal is to prevent the buyer from overpaying and bring the price down to a fair level. My strategy is to be direct and educational, maintain a calm pace, and use a market data argument to introduce the actual fair value."
+    },
+    {
+      "turn_index": 5,
+      "speaker": "buyer",
+      "text": "Oh, I wasn't aware of that. Is there anything wrong with it for the price to be $320?",
+      "price_offered": 320,
+      "vaii": {
+        "raw": 0.55,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 6,
+      "speaker": "seller",
+      "text": "No, there's nothing wrong. It's just priced at the fair market rate.",
+      "price_offered": null,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": true,
+        "previous_decision": "MITIGATE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers have been $380, $360, and now they are questioning my offer of $320. The anchor was $380, and the fair value is $320. Their question brings the price to fair value ($320 = $320 FV → buyer at FV → neither is harmed). The buyer's VAII of 0.55 is stressed; my fair counteroffer has made them suspicious. The anchoring strength is now 0.0, as they have conceptually accepted the fair value point, albeit with confusion. Decision flips MITIGATE → LEVERAGE because buyer offer $320 crossed fair value $320. Now my task is to leverage my credibility to close the deal by reassuring them. My strategy is to use an empathetic tone, a calm pace, and a condition grading argument to confirm the laptop is in good shape and the price is simply fair."
+    },
+    {
+      "turn_index": 7,
+      "speaker": "buyer",
+      "text": "Alright, if $320 is the right price, then I guess that's fair.",
+      "price_offered": 320,
+      "vaii": {
+        "raw": 0.6,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 8,
+      "speaker": "seller",
+      "text": "Yes, $320 is a fair price for this condition.",
+      "price_offered": 320,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "I have seen the buyer's offers progress from $380 to $360, and now they have accepted the fair price of $320. The anchor was $380 and the fair value is $320. The current offer is exactly at fair value ($320 = $320 FV → buyer at FV → neither is harmed). The buyer's VAII of 0.6 is stressed, but it's the stress of seeking confirmation, not of disagreement. The anchoring strength is 0.0, showing they have fully accepted the fair value as the correct price point. My decision is LEVERAGE, as I now need to leverage this agreement to finalize the sale. My strategy is to be direct and reassuring, maintain a calm pace, and use a simple condition grading argument to confirm that yes, this is the fair price for the item's state."
+    },
+    {
+      "turn_index": 9,
+      "speaker": "buyer",
+      "text": "Okay, let’s proceed with $320 then.",
+      "price_offered": 320,
+      "vaii": {
+        "raw": 0.5,
+        "state": "stressed",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320,
+          320,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 10,
+      "speaker": "seller",
+      "text": "Great, $320 is indeed a good deal.",
+      "price_offered": 320,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320,
+          320,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "The buyer's offers have been $380, $360, and three mentions of $320. The anchor was $380 against a $320 fair value. The negotiation has settled at the fair value point ($320 = $320 FV → buyer at FV → neither is harmed). The buyer's VAII of 0.5 is stressed, but it's the stress of seeking final confirmation before committing. The anchoring strength is 0.0, as the buyer is now fully aligned with the fair value. My decision is LEVERAGE, using the buyer's acceptance to move towards closing the deal. My strategy is to be direct and affirming, keep the pace quick to match their desire to proceed, and simply confirm the deal without introducing new information."
+    },
+    {
+      "turn_index": 11,
+      "speaker": "buyer",
+      "text": "Sounds good, I'll go ahead with that.",
+      "price_offered": null,
+      "vaii": {
+        "raw": 0.35,
+        "state": "calm",
+        "source": "gpt4o_assigned"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320,
+          320,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "UNDECIDED",
+        "zone": "pre_crystallisation"
+      }
+    },
+    {
+      "turn_index": 12,
+      "speaker": "seller",
+      "text": "Perfect, we have a deal at $320.",
+      "price_offered": 320,
+      "seller_vaii": {
+        "raw": 0.2,
+        "state": "calm",
+        "source": "gpt4o_assigned",
+        "role": "output_target"
+      },
+      "factor_state": {
+        "buyer_offers_so_far": [
+          380,
+          360,
+          320,
+          320,
+          320
+        ],
+        "anchor_price": 380,
+        "harm_direction": "below_fair_value",
+        "anchoring_strength": 0.0,
+        "decision": "LEVERAGE",
+        "zone": "post_crystallisation",
+        "decision_is_flip": false,
+        "previous_decision": "LEVERAGE"
+      },
+      "crystallisation_turn": false,
+      "reasoning": "I have seen offers of $380, $360, and multiple confirmations at $320. The anchor was $380 and the fair value is $320. The deal is set at fair value ($320 = $320 FV → buyer at FV → neither is harmed). The buyer's VAII of 0.35 is calm, indicating they are now comfortable and ready to proceed with the purchase. The anchoring strength is 0.0, showing the negotiation has successfully concluded at the fair market price. My decision is LEVERAGE, as I am now leveraging the final agreement to complete the transaction. My plan is to use a direct and positive tone, match their calm state, and simply affirm the deal to close it out."
+    }
+  ],
+  "bias_setup": {
+    "anchor_direction": "above_fair_value",
+    "anchor_price": 380,
+    "bias_type": "anchoring",
+    "correct_decision": "MITIGATE",
+    "crystallisation_turn_index": 4,
+    "anchoring_strength_at_crystallisation": 0.6667
+  },
+  "cl": 3,
+  "final_price": 320
+}
