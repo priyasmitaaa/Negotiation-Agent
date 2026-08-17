@@ -3,7 +3,17 @@
     "allow": [
       "Bash(python3 -:*)",
       "Bash(python3 reextract_zero_vaii.py --templates 18 61 62 68 69 79 86 87 95 --preprocessed_root preprocessed/ --audio_root tts_outputs/ --workers 8)",
-      "Bash(tee /tmp/reextract_zero_vaii_run.log)"
+      "Bash(tee /tmp/reextract_zero_vaii_run.log)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d,indent=2\\)\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(nvidia-smi --query-gpu=index,memory.used,memory.total,utilization.gpu --format=csv)",
+      "Bash(python3 -c \"import ast; [ast.parse\\(open\\(f\\).read\\(\\)\\) for f in ['causal_rm_audit.py','run_causal_rm_experiment.py']]; print\\('syntax OK'\\)\")",
+      "Bash(nohup bash -c ' *)",
+      "Bash(echo \"Launched sweep with PID $!\")",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('train_causal_rm.py'\\).read\\(\\)\\); print\\('syntax OK'\\)\")"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }

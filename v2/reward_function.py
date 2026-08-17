@@ -497,8 +497,24 @@ def compute_reward(
     wav_file: Optional[str] = None,
     speech_mode: bool = False,
     require_audio: bool = False,
+    causal_rm: Optional[Any] = None,
 ) -> Tuple[float, Dict[str, Any]]:
-    """Compute total clipped reward and return component details."""
+    """Compute total clipped reward and return component details.
+
+    `causal_rm`: optional causal_reward_model.CausalRewardModel instance
+    (or anything exposing the same `.score(example, response) -> (overall,
+    components)` contract). Defaults to None, which preserves the exact
+    original heuristic-only behavior — this parameter is a pure opt-in
+    integration point (causal_rubric_rl_plan.md Phase 4 / implementation
+    step 7). When provided, price_strategy/emotion/progression come from
+    the RM instead of the keyword heuristics below; decision/flip/format/
+    naturalness/repetition/language stay rule-based either way, per
+    causal_rm_architecture.md section 3's rationale for why those two
+    dimensions remain diagnostics-only even when the RM is active. DO NOT
+    pass a causal_rm here until it has passed the causal_rm_audit.py
+    go/no-go check (causal_rm_architecture.md section 7) — this hook exists
+    so the integration code path can be built and tested ahead of time
+    without prematurely wiring an unvalidated RM into real GRPO training."""
     pred = get_prediction(example, raw_output)
     pred_decision = pred["decision"]
     pred_response = pred["response"] or ""
@@ -517,17 +533,32 @@ def compute_reward(
 
     components["decision"] = decision_reward(pred_decision, example.get("gt_decision"))
 
-    r_price, price_meta = price_strategy_reward(example, pred_decision, pred_response)
+    if causal_rm is not None:
+        _, rm_components = causal_rm.score(example, pred_response)
+        r_price = rm_components["price_strategy"]
+        r_emotion = rm_components["emotion"]
+        r_progression = rm_components["progression"]
+        components["price_strategy_meta"] = {"source": "causal_rm"}
+        components["emotion_meta"] = {"source": "causal_rm"}
+        components["progression_meta"] = {"source": "causal_rm"}
+        # Diagnostics only (causal_rm_architecture.md section 3) — logged for
+        # cross-validation against the rule-based decision_reward()/
+        # flip_reward() verdicts above/below, never fed into `total`.
+        components["decision_score_rm_diagnostic"] = rm_components.get("decision_score")
+        components["flip_score_rm_diagnostic"] = rm_components.get("flip_score")
+    else:
+        r_price, price_meta = price_strategy_reward(example, pred_decision, pred_response)
+        components["price_strategy_meta"] = price_meta
+
+        r_emotion, emotion_meta = emotion_reward(example, pred_response)
+        components["emotion_meta"] = emotion_meta
+
+        r_progression, progression_meta = progression_reward(pred_response)
+        components["progression_meta"] = progression_meta
+
     components["price_strategy"] = r_price
-    components["price_strategy_meta"] = price_meta
-
-    r_emotion, emotion_meta = emotion_reward(example, pred_response)
     components["emotion"] = r_emotion
-    components["emotion_meta"] = emotion_meta
-
-    r_progression, progression_meta = progression_reward(pred_response)
     components["progression"] = r_progression
-    components["progression_meta"] = progression_meta
 
     r_naturalness, naturalness_meta = naturalness_reward(pred_response)
     components["naturalness"] = r_naturalness

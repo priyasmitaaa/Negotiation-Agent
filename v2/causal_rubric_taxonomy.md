@@ -1,5 +1,22 @@
 # Causal Rubric Taxonomy for the Negotiation Reward
 
+**Terminology note (added 2026-07-20, reviewer-recommended):** "causal" here
+means *intervention-based causal-factor sensitivity* — we intervene on one
+structured field (via donor substitution or template edit) and check the
+reward responds — not a formal structural causal model (SCM) with an
+explicit causal graph and identified do-operators. Our donor-substitution
+interventions typically change several correlated fields at once (e.g.
+swapping `zone` also changes `gt_decision`/`buyer_offers_so_far` together,
+since those co-occur in the donor turn), so this is closer to *contrastive
+intervention learning* grounded in domain-structured factors than to formal
+causal inference. Throughout this doc and the rest of the pipeline, prefer
+saying **"intervention-based causal-factor reward model"** or
+**"causal-factor-aware reward model"** over an unqualified "causal reward
+model" — the qualified phrasing is accurate and much harder for a reviewer
+to attack on causal-inference grounds, without weakening the actual
+contribution (sensitivity to negotiation-relevant structure, invariance to
+surface style is the real, defensible claim either way).
+
 **Purpose.** Define, precisely and in terms of fields that already exist in
 `dataset/dialogue_*.json` and in the GRPO example builder
 (`grpo_curriculum.py::build_grpo_examples`), which factors a negotiation
@@ -35,6 +52,7 @@ change the reward assigned to a fixed response.
 | C4 | Negotiation progression | Sequence of `factor_state.buyer_offers_so_far` across turns, presence of a new offer/next-step in the response | Response should change negotiation state (new offer, concrete ask, closing move), not stall | `progression_reward()` — currently word-count + keyword-set → spurious-prone, see S1/S3 |
 | C5 | Flip-turn handling | `factor_state.decision_is_flip`, `factor_state.previous_decision` | At a flip turn, the response must reflect the *new* decision, not carry over the previous turn's stance | `flip_reward()` — already rule-based/causal, keep as-is |
 | C6 | Zone-appropriate boundary behavior | `factor_state.zone` (`pre_crystallisation` vs `post_crystallisation`), `factor_state.anchor_price` proximity to `pricing.fair_value` | Near-boundary cases (offer within ~10% of fair value) are genuinely ambiguous and should be graded more leniently than clear-cut cases | Already partially captured in `grpo_curriculum.py::price_gap_pct` / `difficulty_for_example` — extend into RM training signal, not just curriculum difficulty |
+| C7 | *(proposed, not scoped)* Progression-appropriateness conditioned on buyer emotion | None worked out yet — would be some combination of C3's `emotion.*` fields and C4's `buyer_offers_so_far` sequence | Open question, not yet a defined factor: does a progression-appropriate move (new offer/closing move) also need to be *emotion*-appropriate in its manner, independent of C3 and C4 each being satisfied alone? | None — see `causal_rm_architecture.md` section 9.4.1 for why this came up (a trunk-decoupling side effect, not a designed test) |
 
 ## 2. Spurious Factors
 
@@ -76,15 +94,57 @@ This table is the direct input contract for `generate_intervention_pairs.py`
 or S-number it targets, so training and audit code can report per-factor
 sensitivity/invariance rather than one aggregate number.
 
-**Coverage status (2026-07-19):** `generate_intervention_pairs.py` v1
-implements S1 (length) and S2 (politeness) only — a deliberate first pass,
-chosen because both are verifiable by template construction alone, with no
-second generation step to introduce noise into the causal signal. Before
-running the real RM training (not the smoke-scale prototype), this needs to
-be extended to also cover:
-- **S3 (formatting)** — cheap, template-level (punctuation/capitalization swap), no LLM call, should be added first.
+**Coverage status (updated 2026-08-01):** `generate_intervention_pairs.py`
+now generates causal pairs for **C1, C2, C3, C4, C5** (all except C6) and
+spurious pairs for **S1, S2, S3**. C2 (`causal_pair_price_strategy`) and C4
+(`causal_pair_progression`) were added after a lambda_inv sweep + pairwise
+head-correlation analysis on a trained RM checkpoint showed `price_strategy`
+and `progression` — 2 of the 3 dimensions that actually feed `overall` —
+were underdetermined: they only ever received invariance-loss gradient,
+never causal-ranking gradient, because no C2/C4 pairs existed to anchor
+them. Confirmed empirically rather than assumed: re-running the heuristic
+baseline audit against the new C2/C4 pairs shows the OLD heuristic's
+`price_strategy_reward()`/`progression_reward()` score **exactly 0%** causal
+ranking accuracy on them (not noise — systematic, 1,884 and 1,570 pairs
+respectively), strong independent evidence the heuristic reward is blind to
+negotiation state on these two dimensions.
+
+C4 required a real fix during implementation, not just a copy of the C1/C3/C5
+pattern: `progression_stage` (offer-count bucket) was originally confounded
+with `zone` (verified empirically: `pre_crystallisation` examples have
+*exactly* 1 buyer offer, always, zero variance — crystallisation is
+definitionally what happens once offers accumulate), so restricting C4's
+donor pool to the same zone as C1 requires made it structurally impossible
+to find a contrasting donor. Fixed by scoping C4 to `post_crystallisation`
+only (where offer count has real 2-6 spread) with a within-zone median-ish
+split (`early_post` vs `late_post` at the `offers <= 3` boundary) — an
+honest scope limit (documented in `generate_intervention_pairs.py`), not a
+workaround.
+
+**Scoping clarification (2026-08-16), added after the v2 audio-fusion trunk
+split removed `emotion`'s gradient-entanglement correlation with
+`progression` — see `causal_rm_architecture.md` section 9.4.1 for the full
+finding.** That correlation drop naturally raises "shouldn't progression
+account for emotion, then?" — checked both C4's formal definition (row
+above: `buyer_offers_so_far` sequence and next-step presence, nothing
+about affect) and its implementation (`causal_pair_progression` only ever
+varies `progression_stage`, an offer-count bucket) and confirmed: **C4 is
+scoped to offer-sequence/next-step behavior only.** Buyer-emotion
+sensitivity in progression would be *new scope* requiring its own taxonomy
+justification (grounded in schema fields, same rigor C1-C5 each got), not
+a C4 extension — logged as the still-unscoped **C7** row above rather than
+folded into C4's existing pairs. Also checked C2 (price-strategy) for the
+same latent pattern while this was fresh, since it's the other dimension
+that feeds `overall`: C2's own definition and `causal_pair_price_strategy`
+both key strictly off `buyer_offers_so_far`/`fair_value`/`harm_direction`/
+`zone` — no emotion dependency, same clean scoping as C4. Nothing to fix
+there.
+
+Still not implemented:
+- **C6** — zone-boundary leniency modifier rather than an independent ranking signal, lower priority than C2/C4 were.
+- **C7** — proposed only, no schema-grounded definition worked out yet; see the row above and `causal_rm_architecture.md` section 9.4.1.
 - **S6 (paraphrase)** and **S7 (fluency rewrite)** — require an LLM generation step plus a manual spot-check pass (same discipline as `detect_emotions.py`'s API-based annotation) to confirm the paraphrase/rewrite actually preserved decision, price reference, and emotional stance before it's trusted as a "meaning-preserving" pair.
-- **S4 (prosody)** — requires TTS regeneration via `voice_instruction_generator_v2.py`; real compute cost, so this should wait until text-mode spurious invariance (S1-S3, S6-S7) is validated first, consistent with the phased "text-only reward first, speech-aware RL later" approach already recommended in `rl_reward_function_v6.md` section 4.11.
+- **S4 (prosody)** — requires TTS regeneration via `voice_instruction_generator_v2.py`; real compute cost, so this should wait until text-mode spurious invariance is validated first, consistent with the phased "text-only reward first, speech-aware RL later" approach already recommended in `rl_reward_function_v6.md` section 4.11.
 
 Narrower spurious coverage is an acceptable prototype for validating the
 pipeline end-to-end, but a reviewer would rightly ask "is invariance really

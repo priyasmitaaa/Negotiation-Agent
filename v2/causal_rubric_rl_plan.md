@@ -127,12 +127,23 @@ New script: `causal_rm_audit.py` (sibling to `reward_function.py`'s
 
 ## Implementation Order
 
-1. `causal_rubric_taxonomy.md` (no code, formalizes Phase 1) — quick, unblocks everything else conceptually.
-2. `generate_intervention_pairs.py` + generated pair files (Phase 2).
-3. `causal_reward_model.py` + `train_causal_rm.py` (Phase 3).
-4. Wire into `reward_function.py` / `grpo_curriculum.py` behind a flag (Phase 4).
-5. `causal_rm_audit.py` for diagnostics, run against existing v6 inference JSONs immediately (doesn't require the RM to be trained yet — can run on old reward first to establish the "before" baseline).
-6. Small GRPO pilot comparison (reuse `train_grpo_curriculum.py` CLI, mirror the existing `grpo_pilot_*` smoke-test workflow) once RM is trained.
+**Revised 2026-07-20** (reviewer-recommended re-sequencing): prototype end-to-end
+on the cheap S1-S3 pairs first, prove the RM actually learns causal
+sensitivity + spurious invariance and that GRPO integration works, and only
+*then* pay for the expensive S6/S7/S4 data generation. This avoids sinking
+LLM-paraphrase/TTS-regeneration cost into a pipeline that hasn't been
+validated end-to-end yet — if something in the RM architecture or GRPO
+wiring needs to change, we want to find that out before the expensive data
+exists, not after.
+
+1. `causal_rubric_taxonomy.md` (no code, formalizes Phase 1) — done.
+2. `generate_intervention_pairs.py` + generated pair files, S1-S3 only (Phase 2) — done.
+3. `causal_rm_architecture.md` — finalize the rubric-vector design on paper first (diagram, tensor shapes, loss formulation, training/inference contracts) before writing model code, so `causal_reward_model.py`/`train_causal_rm.py` are implementing an already-settled spec rather than improvising architecture while also writing training code.
+4. `causal_reward_model.py` — the rubric-vector scorer (inference-time module).
+5. `train_causal_rm.py` — Bradley-Terry + invariance loss, trained on the current S1-S3 causal_rm_pairs_*.json.
+6. Train a first reward model on this prototype data and verify (via `causal_rm_audit.py`, built at this step) that it (a) is sensitive to causal pairs in the correct direction and (b) is invariant on spurious pairs — this is the go/no-go checkpoint before investing further.
+7. Wire into `reward_function.py` / `grpo_curriculum.py` behind a flag (Phase 4) and run a small GRPO pilot (reuse `train_grpo_curriculum.py` CLI, mirror the existing `grpo_pilot_*` smoke-test workflow) to confirm the integration doesn't break training.
+8. Only after 6-7 pass: expand `generate_intervention_pairs.py` to S6 (paraphrase), S7 (fluency rewrite), S4 (prosody) per `causal_rubric_taxonomy.md` section 4, regenerate the full pair set, and retrain the RM for the real ACL-scale experiments.
 
 ## Verification
 

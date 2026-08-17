@@ -283,19 +283,191 @@ class CurriculumCallback(TrainerCallback):
         self.dataset.set_progress(state.global_step / max_steps)
 
 
-def negotiation_grpo_reward(completions, **kwargs) -> list[float]:
-    rewards: list[float] = []
-    for i, completion in enumerate(completions):
-        text = completion[0]["content"] if isinstance(completion, list) else str(completion)
-        example = {key: values[i] for key, values in kwargs.items()}
-        reward, _components = compute_reward(
-            example,
-            raw_output=text,
-            previous_seller_responses=example.get("previous_seller_responses"),
-            speech_mode=False,
-        )
-        rewards.append(float(reward))
-    return rewards
+def build_fixed_eval_slice(val_dataset: NegotiationGRPODataset, n: int = 20) -> List[Dict]:
+    """A small, DETERMINISTIC (not randomly resampled) held-out slice for periodic
+    in-training eval — NegotiationGRPODataset.__getitem__ samples randomly per call
+    (curriculum sampling), which would make step-to-step accuracy numbers
+    incomparable. Mirrors __getitem__'s audio-loading exactly, just over a fixed
+    prefix of val_dataset.examples instead of a random draw."""
+    slice_examples = val_dataset.examples[:n]
+    out = []
+    for ex in slice_examples:
+        audio = []
+        if val_dataset.include_audio:
+            for path in ex["audio_paths"]:
+                arr = load_wav(Path(path))
+                if arr is not None:
+                    audio.append(arr)
+        out.append({
+            "prompt": ex["prompt"],
+            "audio": audio,
+            "gt_decision": ex["gt_decision"],
+        })
+    return out
+
+
+def evaluate_decision_accuracy(model, processor, eval_examples: List[Dict], device) -> float:
+    """Greedy-decode a small held-out slice with the LIVE in-training model and
+    score decision-tag accuracy against ground truth. This exists specifically to
+    catch silent quality drift (a policy finding some way to game the causal RM's
+    scalar reward without genuinely improving negotiation quality) that
+    reward/entropy/grad_norm logging alone can't distinguish from real
+    improvement — see causal_rm_results.md section 4.4's discussion of the
+    step-32 pattern for why this gap matters. Deliberately minimal: greedy
+    decoding, no speech, no full error-analysis.py-style breakdown — just a
+    cheap accuracy number to log alongside the existing training metrics."""
+    from inference_v6 import parse_output  # tiny regex parser, safe to import
+                                            # (inference_v6.py's own CLI code is
+                                            # guarded by `if __name__ == "__main__"`)
+
+    was_training = model.training
+    model.eval()
+    correct = 0
+    total = 0
+    try:
+        with torch.no_grad():
+            for ex in eval_examples:
+                text = processor.apply_chat_template(
+                    ex["prompt"], tokenize=False, add_generation_prompt=True
+                )
+                kwargs = {"audio": ex["audio"]} if ex["audio"] else {}
+                inputs = processor(text=[text], return_tensors="pt", padding=True, **kwargs)
+                inputs = {k: v.to(device) if hasattr(v, "to") else v for k, v in inputs.items()}
+                prompt_len = inputs["input_ids"].shape[1]
+                out = model.generate(**inputs, max_new_tokens=64, do_sample=False)
+                gen_text = processor.tokenizer.decode(out[0][prompt_len:], skip_special_tokens=True)
+                parsed = parse_output(gen_text)
+                total += 1
+                if parsed["decision"] == ex["gt_decision"]:
+                    correct += 1
+    finally:
+        if was_training:
+            model.train()
+    return correct / total if total else 0.0
+
+
+class PeriodicEvalCallback(TrainerCallback):
+    """Runs evaluate_decision_accuracy every `eval_steps` training steps and logs
+    the result — both to stdout and, if given, as a JSONL line — alongside trl's
+    own reward/entropy/grad_norm logging, so a training run's health signal
+    includes a held-out correctness check, not just training-batch statistics."""
+
+    def __init__(self, eval_examples: List[Dict], eval_steps: int = 50, log_path: Optional[Path] = None):
+        self.eval_examples = eval_examples
+        self.eval_steps = eval_steps
+        self.log_path = log_path
+
+    def on_step_end(self, args, state, control, model=None, processing_class=None, **kwargs):
+        if self.eval_steps <= 0 or state.global_step == 0 or state.global_step % self.eval_steps != 0:
+            return
+        device = next(model.parameters()).device
+        acc = evaluate_decision_accuracy(model, processing_class, self.eval_examples, device)
+        print(f"[held-out eval] step={state.global_step} decision_accuracy={acc:.4f} "
+              f"(n={len(self.eval_examples)})")
+        if self.log_path is not None:
+            self.log_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.log_path, "a") as f:
+                f.write(json.dumps({
+                    "step": state.global_step,
+                    "decision_accuracy": acc,
+                    "n": len(self.eval_examples),
+                }) + "\n")
+
+
+def make_negotiation_grpo_reward(causal_rm: Optional[object] = None, component_log_path: Optional[Path] = None):
+    """Build a GRPO reward function, optionally backed by a trained causal
+    reward model instead of the keyword-heuristic reward components.
+    `causal_rm=None` (the default) reproduces the exact original reward
+    function unchanged — this is an opt-in integration point
+    (causal_rubric_rl_plan.md Phase 4 / implementation step 7).
+
+    IMPORTANT: only pass a real causal_rm here after it has passed
+    causal_rm_audit.py's go/no-go check (causal_rm_architecture.md section
+    7). Building this factory function does not itself activate anything —
+    train_grpo_curriculum.py must be explicitly told to load and pass a
+    checkpoint via --causal_rm_checkpoint.
+
+    `component_log_path`: TRL's GRPOTrainer only consumes the scalar list
+    this function returns — the per-dimension `components` dict from
+    compute_reward() would otherwise be silently discarded every call,
+    which means the exact reward-hacking signal we'd want to watch for
+    during a GRPO pilot (does `overall` climb without genuine
+    emotion/price_strategy/progression improvement) would be invisible
+    until after the fact. When set, every call appends one JSON line per
+    completion with its full component breakdown plus a monotonic call
+    counter (proxy for training step ordering) to this file — read it back
+    with summarize_component_log() below."""
+    call_counter = 0
+
+    def negotiation_grpo_reward(completions, **kwargs) -> list[float]:
+        nonlocal call_counter
+        rewards: list[float] = []
+        log_lines: list[str] = []
+        for i, completion in enumerate(completions):
+            text = completion[0]["content"] if isinstance(completion, list) else str(completion)
+            # trl's stock GRPOTrainer._calculate_rewards (unlike Omni-R1's vendored
+            # trainer) injects reward_kwargs["trainer_state"] = self.state — a single
+            # TrainerState object, not a per-example list — alongside the genuine
+            # per-example dataset columns. Skip anything that isn't list/tuple-like
+            # rather than assuming every kwarg is indexable per-completion; this is
+            # additive (doesn't change Omni-R1's existing behavior, which never
+            # injected a non-list kwarg here) and defensive against similar future
+            # additions from either trainer.
+            example = {
+                key: values[i] for key, values in kwargs.items() if isinstance(values, (list, tuple))
+            }
+            reward, components = compute_reward(
+                example,
+                raw_output=text,
+                previous_seller_responses=example.get("previous_seller_responses"),
+                speech_mode=False,
+                causal_rm=causal_rm,
+            )
+            rewards.append(float(reward))
+            if component_log_path is not None:
+                record = {
+                    "call_index": call_counter,
+                    "total": float(reward),
+                    **{k: v for k, v in components.items() if not k.endswith("_meta") and k != "hard_gate"},
+                }
+                log_lines.append(json.dumps(record))
+            call_counter += 1
+
+        if component_log_path is not None and log_lines:
+            with open(component_log_path, "a") as f:
+                f.write("\n".join(log_lines) + "\n")
+
+        return rewards
+
+    return negotiation_grpo_reward
+
+
+def summarize_component_log(log_path: Path, bucket_size: int = 20) -> List[Dict[str, float]]:
+    """Read a component_log_path JSONL file back and compute per-dimension
+    mean reward in buckets of `bucket_size` consecutive calls — a cheap
+    proxy for "reward trajectory over training" without needing TRL-level
+    step alignment. Used post-pilot to check for the reward-hacking tell:
+    overall climbing without decision/emotion/price_strategy/progression
+    climbing alongside it."""
+    records = [json.loads(line) for line in Path(log_path).read_text().splitlines() if line.strip()]
+    records.sort(key=lambda r: r["call_index"])
+
+    buckets: List[Dict[str, float]] = []
+    for i in range(0, len(records), bucket_size):
+        chunk = records[i : i + bucket_size]
+        keys = [k for k in chunk[0] if k != "call_index"]
+        bucket = {"call_index_start": chunk[0]["call_index"], "n": len(chunk)}
+        for k in keys:
+            values = [r[k] for r in chunk if isinstance(r.get(k), (int, float))]
+            if values:
+                bucket[k] = sum(values) / len(values)
+        buckets.append(bucket)
+    return buckets
+
+
+# Backward-compatible default (causal_rm=None): existing callers that import
+# `negotiation_grpo_reward` directly keep working unchanged.
+negotiation_grpo_reward = make_negotiation_grpo_reward(causal_rm=None)
 
 
 def write_manifest(split: str, output: Path, include_audio: bool = True) -> None:

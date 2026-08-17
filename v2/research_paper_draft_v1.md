@@ -841,7 +841,20 @@ where `x` is the dialogue state, `y` is the model output, `r_i` are positive rew
 
 ## 17. RL Direction
 
-The repository includes an `Omni-R1/` directory, which contains GRPO-related training scripts and reward utilities. The presence of this directory suggests the next implementation direction:
+**Update (2026-08-17): implemented, not just planned.** This section originally
+described GRPO as a speculative next direction, inferred from the presence of a
+vendored `Omni-R1/` reference repo in the codebase. That repo has since been
+removed (the project ships without third-party vendored training code, per its
+original scope), and GRPO training on the v6 final adapter has actually been
+built, run, and evaluated — a custom `AudioGRPOTrainer` (a thin subclass of
+trl's own `GRPOTrainer`, written independently, extending it with audio-modality
+support trl doesn't ship natively) trained for 300 real steps with the causal
+reward model described elsewhere in this draft, reaching decision_accuracy=0.96
+on a 100-example held-out slice. Full methodology, the memory-safety
+investigation, and the training-stability evidence are in `causal_rm_results.md`
+sections 4.3-4.4 — worth pulling into this draft's methods section rather than
+duplicating here. The original plan (kept below for context on what was
+initially scoped) was:
 
 - Start from the v6 final adapter.
 - Generate multiple candidate seller responses per prompt.
