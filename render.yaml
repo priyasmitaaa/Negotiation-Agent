@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: negotiation-annotation
+    env: docker
+    plan: starter
+    autoDeploy: true
+    disk:
+      name: annotation-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_PATH
+        value: /data/annotations.sqlite3
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_EXPORT_SECRET
+        sync: false

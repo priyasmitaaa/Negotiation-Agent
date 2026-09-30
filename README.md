@@ -91,7 +91,9 @@ Run `flask init-db` and `flask import-items` once against the persistent volume.
 
 ## Deployment
 
-Use a Docker-capable host with a persistent volume. Set `DATABASE_PATH`, set `ADMIN_EXPORT_SECRET`, initialize/import the database, start Gunicorn, and verify `/health` plus the root URL. This repository includes deployment configuration but is not deployed unless a live URL is tested.
+Use a Docker-capable host with a persistent volume. Set `DATABASE_PATH`, set `ADMIN_EXPORT_SECRET`, initialize/import the database, start Gunicorn, and verify `/health` plus the root URL.
+
+For Render, use the included `render.yaml` blueprint. It provisions one Docker web service, mounts a persistent disk at `/data`, sets `DATABASE_PATH=/data/annotations.sqlite3`, generates `SECRET_KEY`, and asks you to provide `ADMIN_EXPORT_SECRET`. The Docker startup command runs database initialization and item import before starting Gunicorn.
 
 ## Exports and Backup
 

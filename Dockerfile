@@ -11,4 +11,4 @@ COPY . .
 RUN mkdir -p /data
 
 EXPOSE 8000
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:create_app()"]
+CMD ["sh", "-c", "python -m flask --app app:create_app init-db && python -m flask --app app:create_app import-items && gunicorn -b 0.0.0.0:${PORT:-8000} 'app:create_app()'"]
