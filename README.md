@@ -95,6 +95,67 @@ Use a Docker-capable host with a persistent volume. Set `DATABASE_PATH`, set `AD
 
 For Render, use the included `render.yaml` blueprint. It provisions one Docker web service, mounts a persistent disk at `/data`, sets `DATABASE_PATH=/data/annotations.sqlite3`, generates `SECRET_KEY`, and asks you to provide `ADMIN_EXPORT_SECRET`. The Docker startup command runs database initialization and item import before starting Gunicorn.
 
+### Free No-Card Option: PythonAnywhere
+
+PythonAnywhere free accounts can host one Flask/WSGI web app on a persistent filesystem. Because this app uses SQLite and local audio files, PythonAnywhere is a better no-card fit than static hosts.
+
+Recommended setup:
+
+1. Create a free PythonAnywhere account.
+2. Open a Bash console.
+3. Download the branch:
+
+```bash
+cd ~
+git clone --depth 1 --branch human-annotation https://github.com/priyasmitaaa/Negotiation-Agent.git
+cd Negotiation-Agent
+pip3 install --user -r requirements.txt
+```
+
+4. Initialize and import items:
+
+```bash
+export FLASK_APP=app:create_app
+export DATABASE_PATH=/home/YOUR_USERNAME/Negotiation-Agent/annotations.sqlite3
+export SECRET_KEY=replace-with-random-text
+export ADMIN_EXPORT_SECRET=replace-with-random-admin-secret
+python3 -m flask init-db
+python3 -m flask import-items
+```
+
+5. In the PythonAnywhere **Web** tab, create a manual Flask/Python web app.
+6. Set the WSGI file to import this repo's `wsgi.py`. The core lines should be:
+
+```python
+import os
+import sys
+
+project_home = '/home/YOUR_USERNAME/Negotiation-Agent'
+if project_home not in sys.path:
+    sys.path.insert(0, project_home)
+
+os.environ['DATABASE_PATH'] = '/home/YOUR_USERNAME/Negotiation-Agent/annotations.sqlite3'
+os.environ['SECRET_KEY'] = 'replace-with-random-text'
+os.environ['ADMIN_EXPORT_SECRET'] = 'replace-with-random-admin-secret'
+
+from wsgi import application
+```
+
+7. Add a static files mapping:
+
+```text
+URL: /static/
+Directory: /home/YOUR_USERNAME/Negotiation-Agent/annotation_app/static/
+```
+
+8. Reload the web app. Your share link will look like:
+
+```text
+https://YOUR_USERNAME.pythonanywhere.com
+```
+
+Use **Files** or Bash to periodically download `annotations.sqlite3` as your backup.
+
 ## Exports and Backup
 
 ```bash
