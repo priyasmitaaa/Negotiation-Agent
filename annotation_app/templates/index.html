@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Negotiation Reply Annotation</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="onboarding" class="onboarding" hidden>
+    <section class="panel onboarding-panel" aria-labelledby="start-title">
+      <h1 id="start-title">Negotiation Reply Annotation</h1>
+      <p>Enter your assigned Rater ID to start or resume. Rater ID separates annotation records, but it is not strong authentication.</p>
+      <form id="start-form">
+        <label for="rater-id">Assigned Rater ID</label>
+        <input id="rater-id" name="rater_id" required autocomplete="off">
+        <label class="checkline">
+          <input id="guide-ack" type="checkbox" required>
+          I have read the annotator guide and understand that D0 locks after reveal.
+        </label>
+        <ul class="compact-list">
+          <li>Listen to the audio, not only the transcripts.</li>
+          <li>Rate each reply independently, including repeated items.</li>
+          <li>Do not discuss items or scores before the study ends.</li>
+        </ul>
+        <button class="primary" type="submit">Start or resume</button>
+      </form>
+      <p><a href="/reference/human_eval_annotator_guide.docx">Open annotator guide</a></p>
+    </section>
+  </div>
+
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar" aria-label="Item navigation">
+      <div class="side-head">
+        <h1>Items</h1>
+        <p id="completed-count">Completed: 0 / 100</p>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+      </div>
+      <div class="filters" role="group" aria-label="Filter items">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="untouched">Untouched</button>
+        <button data-filter="partial">Partial</button>
+        <button data-filter="complete">Complete</button>
+        <button data-filter="technical_issue">Issues</button>
+      </div>
+      <nav id="item-list" class="item-list"></nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Human evaluation</p>
+          <h2 id="item-title">Loading...</h2>
+        </div>
+        <div class="status-stack">
+          <span id="save-status" class="save-status">Saved</span>
+          <button id="submit-all" class="secondary">Final submission</button>
+        </div>
+      </header>
+
+      <section class="guide-box">
+        <details>
+          <summary>Strategy rule and rating guide</summary>
+          <div class="guide-grid">
+            <div>
+              <h3>Required strategy</h3>
+              <table>
+                <tr><th>Situation</th><th>Required strategy</th></tr>
+                <tr><td>Seller's first reply</td><td>Open the negotiation</td></tr>
+                <tr><td>Buyer offer at or below fair value</td><td>Negotiate firmly</td></tr>
+                <tr><td>Buyer offer above fair value</td><td>Protect the buyer</td></tr>
+              </table>
+            </div>
+            <div>
+              <h3>Shared scale</h3>
+              <p>1 - Very poor; 2 - Poor; 3 - Acceptable, with clear problems; 4 - Good; 5 - Excellent, nothing to fix.</p>
+              <p>Fair value is what the device is worth. The goal is a fair deal near that value, not maximum profit. Accepting overpayment is poor behavior here. Quoting fair value is good behavior.</p>
+              <p><a href="/reference/human_eval_annotator_guide.docx">Open full guide</a></p>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <section id="item-root"></section>
+
+      <footer class="nav-footer">
+        <button id="previous-item" class="secondary">Previous</button>
+        <button id="next-item" class="primary">Next</button>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="issue-dialog">
+    <form method="dialog" id="issue-form">
+      <h2>Report technical problem</h2>
+      <p>Use this for broken text, missing assets, or other non-audio issues that prevent normal rating.</p>
+      <label for="issue-description">Problem description</label>
+      <textarea id="issue-description" required rows="4"></textarea>
+      <div class="dialog-actions">
+        <button value="cancel" class="secondary">Cancel</button>
+        <button value="submit" class="primary">Record issue</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
