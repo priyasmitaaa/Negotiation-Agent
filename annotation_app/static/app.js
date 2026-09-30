@@ -89,6 +89,7 @@ function bindStaticControls() {
 function showApp() {
   document.querySelector("#onboarding").hidden = true;
   document.querySelector("#app").hidden = false;
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   renderSidebar();
 }
 
@@ -129,7 +130,7 @@ function renderSidebar() {
 }
 
 function statusIcon(status) {
-  return { untouched: "○", partial: "◐", complete: "✓", technical_issue: "!" }[status] || "○";
+  return { untouched: "O", partial: "~", complete: "OK", technical_issue: "!" }[status] || "O";
 }
 
 function renderItem() {

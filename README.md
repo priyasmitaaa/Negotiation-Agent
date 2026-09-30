@@ -109,7 +109,7 @@ sqlite3 /data/annotations.sqlite3 ".backup '/data/annotations-backup.sqlite3'"
 - Forward navigation is blocked unless the current item is complete or recorded as a technical issue.
 - Earlier visited items can be reopened.
 - Autosave writes each answer to SQLite.
-- Refreshing or reopening with the same Rater ID restores progress.
+- Refreshing or reopening with the same rater name or initials restores progress.
 - Final submission is blocked until all 100 items are complete or technical issues.
 - After final submission, data is read-only.
 
@@ -122,7 +122,7 @@ Use **Report technical problem** for broken text, missing assets, or other non-a
 - Seller reply data is excluded from pre-reveal API responses.
 - `reply.wav` is blocked before reveal.
 - D0 cannot be changed after reveal.
-- Rater IDs remain separate.
+- Rater labels remain separate.
 - The app does not show correct D0 answers, aggregate scores, leaderboards, or speed rewards.
 - Dataset text is escaped in the frontend.
 - Asset serving validates paths and prevents traversal.
