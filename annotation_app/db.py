@@ -22,7 +22,16 @@ def close_db(_exc=None):
 def init_db():
     db = get_db()
     db.executescript(SCHEMA)
+    migrate_db(db)
     db.commit()
+
+
+def migrate_db(db):
+    columns = {row["name"] for row in db.execute("PRAGMA table_info(annotators)").fetchall()}
+    if "password_hash" not in columns:
+        db.execute("ALTER TABLE annotators ADD COLUMN password_hash TEXT")
+    if "password_set_at" not in columns:
+        db.execute("ALTER TABLE annotators ADD COLUMN password_set_at TEXT")
 
 
 def row_to_dict(row):

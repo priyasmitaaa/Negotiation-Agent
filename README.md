@@ -19,6 +19,8 @@ Flask, vanilla JavaScript, plain CSS, Python `sqlite3`, pytest, Gunicorn, and Do
 
 ## Workflow
 
+Annotators create a simple account with a username/name/initials and password the first time they visit. Later they log in with the same values to resume. There is no email or OTP flow; this keeps the study low-friction while avoiding accidental record collisions. Passwords are stored as hashes, not plaintext.
+
 Each item has two stages. Before reveal, the browser receives only the product card, previous conversation transcripts/audio, and D0 controls. After D0 Strategy and D0 Confidence are saved, the backend locks D0, records `revealed_at`, and returns seller reply text/audio plus D1-D13, flags, and comment fields.
 
 D0 lock is enforced by the backend. Seller reply text and `reply.wav` are not returned or served before reveal.
@@ -123,6 +125,8 @@ python3 -m flask init-db
 python3 -m flask import-items
 ```
 
+`python3 -m flask init-db` is idempotent. Run it again after pulling app updates; it applies lightweight SQLite migrations such as adding login columns.
+
 5. In the PythonAnywhere **Web** tab, create a manual Flask/Python web app.
 6. Set the WSGI file to import this repo's `wsgi.py`. The core lines should be:
 
@@ -170,7 +174,7 @@ sqlite3 /data/annotations.sqlite3 ".backup '/data/annotations-backup.sqlite3'"
 - Forward navigation is blocked unless the current item is complete or recorded as a technical issue.
 - Earlier visited items can be reopened.
 - Autosave writes each answer to SQLite.
-- Refreshing or reopening with the same rater name or initials restores progress.
+- Refreshing or reopening with the same username/name and password restores progress.
 - Final submission is blocked until all 100 items are complete or technical issues.
 - After final submission, data is read-only.
 
@@ -183,7 +187,7 @@ Use **Report technical problem** for broken text, missing assets, or other non-a
 - Seller reply data is excluded from pre-reveal API responses.
 - `reply.wav` is blocked before reveal.
 - D0 cannot be changed after reveal.
-- Rater labels remain separate.
+- Annotator accounts remain separate.
 - The app does not show correct D0 answers, aggregate scores, leaderboards, or speed rewards.
 - Dataset text is escaped in the frontend.
 - Asset serving validates paths and prevents traversal.

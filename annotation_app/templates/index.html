@@ -4,17 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Negotiation Reply Annotation</title>
-  <link rel="stylesheet" href="/static/styles.css?v=20261001">
+  <link rel="stylesheet" href="/static/styles.css?v=20261001-auth">
 </head>
 <body>
   <div id="onboarding" class="onboarding" hidden>
     <section class="panel onboarding-panel" aria-labelledby="start-title">
       <h1 id="start-title">Negotiation Reply Annotation</h1>
-      <p>Enter your assigned rater name or initials to start or resume. This separates annotation records, but it is not strong authentication.</p>
+      <p>Create an annotator login the first time, then use the same username/name and password to resume later.</p>
+      <div class="auth-tabs" role="tablist" aria-label="Account mode">
+        <button id="signup-tab" class="active" type="button" data-auth-mode="signup">First time sign up</button>
+        <button id="login-tab" type="button" data-auth-mode="login">Log in</button>
+      </div>
       <form id="start-form">
-        <label for="rater-id">Rater name or initials</label>
-        <input id="rater-id" name="rater_id" required autocomplete="off" placeholder="Example: Test_Priyo">
-        <label class="checkline">
+        <input id="auth-mode" type="hidden" value="signup">
+        <label for="rater-id">Username, name, or initials</label>
+        <input id="rater-id" name="rater_id" required autocomplete="username" placeholder="Example: Test_Priyo">
+        <label for="rater-password">Password</label>
+        <input id="rater-password" name="password" type="password" required autocomplete="new-password" minlength="6">
+        <label class="checkline" id="guide-ack-row">
           <input id="guide-ack" type="checkbox" required>
           I have read the annotator guide and understand that D0 locks after reveal.
         </label>
@@ -23,7 +30,7 @@
           <li>Rate each reply independently, including repeated items.</li>
           <li>Do not discuss items or scores before the study ends.</li>
         </ul>
-        <button class="primary" type="submit">Start or resume</button>
+        <button id="auth-submit" class="primary" type="submit">Create account and start</button>
       </form>
       <p><a href="/reference/human_eval_annotator_guide.docx">Open annotator guide</a></p>
     </section>
@@ -104,6 +111,6 @@
     </form>
   </dialog>
 
-  <script src="/static/app.js?v=20261001"></script>
+  <script src="/static/app.js?v=20261001-auth"></script>
 </body>
 </html>

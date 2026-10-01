@@ -53,18 +53,28 @@ async function boot() {
 }
 
 function bindStaticControls() {
+  document.querySelectorAll("[data-auth-mode]").forEach((button) => {
+    button.addEventListener("click", () => setAuthMode(button.dataset.authMode));
+  });
   document.querySelector("#start-form").addEventListener("submit", async (event) => {
     event.preventDefault();
+    clearOnboardingError();
+    const mode = document.querySelector("#auth-mode").value;
     const payload = {
       rater_id: document.querySelector("#rater-id").value,
+      password: document.querySelector("#rater-password").value,
       guide_acknowledged: document.querySelector("#guide-ack").checked,
     };
-    const result = await api("/api/start", { method: "POST", body: payload });
-    state.annotator = result.annotator;
-    state.progress = result.progress;
-    state.submitted = result.annotator.submitted;
-    showApp();
-    await openFirstAvailable();
+    try {
+      const result = await api(mode === "signup" ? "/api/signup" : "/api/login", { method: "POST", body: payload });
+      state.annotator = result.annotator;
+      state.progress = result.progress;
+      state.submitted = result.annotator.submitted;
+      showApp();
+      await openFirstAvailable();
+    } catch (err) {
+      showOnboardingError(err.message);
+    }
   });
   document.querySelectorAll(".filters button").forEach((button) => {
     button.addEventListener("click", () => {
@@ -84,6 +94,34 @@ function bindStaticControls() {
     document.querySelector("#issue-dialog").close();
     await loadItem(state.currentCode);
   });
+}
+
+function setAuthMode(mode) {
+  const isSignup = mode === "signup";
+  document.querySelector("#auth-mode").value = mode;
+  document.querySelectorAll("[data-auth-mode]").forEach((button) => {
+    button.classList.toggle("active", button.dataset.authMode === mode);
+  });
+  document.querySelector("#guide-ack-row").hidden = !isSignup;
+  document.querySelector("#guide-ack").required = isSignup;
+  document.querySelector("#rater-password").autocomplete = isSignup ? "new-password" : "current-password";
+  document.querySelector("#auth-submit").textContent = isSignup ? "Create account and start" : "Log in and resume";
+}
+
+function showOnboardingError(text) {
+  let node = document.querySelector("#onboarding-error");
+  if (!node) {
+    node = document.createElement("p");
+    node.id = "onboarding-error";
+    node.className = "error-text";
+    document.querySelector("#start-form").prepend(node);
+  }
+  node.textContent = text || "";
+}
+
+function clearOnboardingError() {
+  const node = document.querySelector("#onboarding-error");
+  if (node) node.textContent = "";
 }
 
 function showApp() {

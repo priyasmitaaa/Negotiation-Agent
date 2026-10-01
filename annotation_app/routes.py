@@ -48,9 +48,37 @@ def health():
     return {"ok": True}
 
 
+@bp.post("/api/signup")
+def signup():
+    data = request.get_json(force=True)
+    try:
+        annotator = services.signup_annotator(
+            data.get("rater_id"),
+            data.get("password"),
+            guide_acknowledged=bool(data.get("guide_acknowledged")),
+        )
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    session["annotator_id"] = annotator["id"]
+    return jsonify({"annotator": public_annotator(annotator), "progress": services.progress_list(annotator["id"])})
+
+
+@bp.post("/api/login")
+def login():
+    data = request.get_json(force=True)
+    try:
+        annotator = services.login_annotator(data.get("rater_id"), data.get("password"))
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 401
+    session["annotator_id"] = annotator["id"]
+    return jsonify({"annotator": public_annotator(annotator), "progress": services.progress_list(annotator["id"])})
+
+
 @bp.post("/api/start")
 def start():
     data = request.get_json(force=True)
+    if data.get("password"):
+        return signup()
     try:
         annotator = services.ensure_annotator(
             data.get("rater_id"),
@@ -60,6 +88,12 @@ def start():
         return jsonify({"error": str(exc)}), 400
     session["annotator_id"] = annotator["id"]
     return jsonify({"annotator": public_annotator(annotator), "progress": services.progress_list(annotator["id"])})
+
+
+@bp.post("/api/logout")
+def logout():
+    session.clear()
+    return jsonify({"ok": True})
 
 
 @bp.get("/api/session")

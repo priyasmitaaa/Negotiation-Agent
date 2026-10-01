@@ -3,6 +3,8 @@ import io
 import json
 from datetime import datetime, timezone
 
+from werkzeug.security import check_password_hash, generate_password_hash
+
 from .db import get_db
 
 STRATEGIES = {"Open the negotiation", "Negotiate firmly", "Protect the buyer"}
@@ -45,10 +47,61 @@ def now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def ensure_annotator(rater_code, guide_acknowledged=False):
+def normalize_rater_code(rater_code):
     code = (rater_code or "").strip()
     if not code:
-        raise ValueError("Rater ID is required.")
+        raise ValueError("Username or name is required.")
+    if len(code) > 80:
+        raise ValueError("Username or name is too long.")
+    return code
+
+
+def validate_password(password):
+    password = password or ""
+    if len(password) < 6:
+        raise ValueError("Password must be at least 6 characters.")
+    if len(password) > 200:
+        raise ValueError("Password is too long.")
+    return password
+
+
+def signup_annotator(rater_code, password, guide_acknowledged=False):
+    code = normalize_rater_code(rater_code)
+    password = validate_password(password)
+    if not guide_acknowledged:
+        raise ValueError("Please confirm that you have read the guide.")
+    db = get_db()
+    timestamp = now()
+    row = db.execute("SELECT * FROM annotators WHERE rater_code = ?", (code,)).fetchone()
+    if row is not None:
+        raise ValueError("That username/name already exists. Please log in instead.")
+    db.execute(
+        """
+        INSERT INTO annotators
+        (rater_code, password_hash, password_set_at, guide_acknowledged_at, last_active_at)
+        VALUES (?, ?, ?, ?, ?)
+        """,
+        (code, generate_password_hash(password), timestamp, timestamp, timestamp),
+    )
+    db.commit()
+    return db.execute("SELECT * FROM annotators WHERE rater_code = ?", (code,)).fetchone()
+
+
+def login_annotator(rater_code, password):
+    code = normalize_rater_code(rater_code)
+    password = password or ""
+    db = get_db()
+    row = db.execute("SELECT * FROM annotators WHERE rater_code = ?", (code,)).fetchone()
+    if row is None or not row["password_hash"] or not check_password_hash(row["password_hash"], password):
+        raise ValueError("Invalid username/name or password.")
+    db.execute("UPDATE annotators SET last_active_at = ? WHERE id = ?", (now(), row["id"]))
+    db.commit()
+    return annotator_by_id(row["id"])
+
+
+def ensure_annotator(rater_code, guide_acknowledged=False):
+    """Compatibility helper for tests and pre-password local data."""
+    code = normalize_rater_code(rater_code)
     db = get_db()
     timestamp = now()
     row = db.execute("SELECT * FROM annotators WHERE rater_code = ?", (code,)).fetchone()

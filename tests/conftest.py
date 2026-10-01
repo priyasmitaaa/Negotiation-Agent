@@ -31,7 +31,13 @@ def client(app):
 
 
 def start(client, rater="rater-a"):
-    return client.post(
-        "/api/start",
-        json={"rater_id": rater, "guide_acknowledged": True},
+    response = client.post(
+        "/api/signup",
+        json={"rater_id": rater, "password": "password123", "guide_acknowledged": True},
     )
+    if response.status_code == 400:
+        response = client.post(
+            "/api/login",
+            json={"rater_id": rater, "password": "password123"},
+        )
+    return response

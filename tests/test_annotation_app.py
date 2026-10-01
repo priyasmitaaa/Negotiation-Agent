@@ -24,6 +24,38 @@ def test_start_resume_and_separate_annotators(client):
     assert second["annotation"]["status"] == "untouched"
 
 
+def test_signup_login_and_password_rejection(client):
+    signup = client.post(
+        "/api/signup",
+        json={"rater_id": "secure-user", "password": "secret123", "guide_acknowledged": True},
+    )
+    assert signup.status_code == 200
+    assert client.post(
+        "/api/signup",
+        json={"rater_id": "secure-user", "password": "secret123", "guide_acknowledged": True},
+    ).status_code == 400
+    assert client.post(
+        "/api/login",
+        json={"rater_id": "secure-user", "password": "wrongpass"},
+    ).status_code == 401
+    login = client.post(
+        "/api/login",
+        json={"rater_id": "secure-user", "password": "secret123"},
+    )
+    assert login.status_code == 200
+
+
+def test_signup_requires_guide_and_minimum_password(client):
+    assert client.post(
+        "/api/signup",
+        json={"rater_id": "short-pass", "password": "123", "guide_acknowledged": True},
+    ).status_code == 400
+    assert client.post(
+        "/api/signup",
+        json={"rater_id": "no-guide", "password": "secret123", "guide_acknowledged": False},
+    ).status_code == 400
+
+
 def test_pre_reveal_excludes_seller_reply_and_asset(client):
     start(client)
     item = client.get("/api/items/item_001").get_json()

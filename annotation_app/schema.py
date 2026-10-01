@@ -4,6 +4,8 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE IF NOT EXISTS annotators (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     rater_code TEXT NOT NULL UNIQUE,
+    password_hash TEXT,
+    password_set_at TEXT,
     guide_acknowledged_at TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     last_active_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
