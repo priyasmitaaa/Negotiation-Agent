@@ -303,7 +303,7 @@ function choiceButton(field, value, selected, label = value) {
 
 function bindItemControls() {
   document.querySelectorAll("[data-field][data-value]").forEach((button) => {
-    button.addEventListener("click", () => handleChoice(button.dataset.field, button.dataset.value));
+    button.addEventListener("click", () => handleChoice(button.dataset.field, button.dataset.value, button));
   });
   const revealButton = document.querySelector("#reveal-button");
   if (revealButton) revealButton.addEventListener("click", reveal);
@@ -316,7 +316,7 @@ function bindItemControls() {
   updateNextState();
 }
 
-async function handleChoice(field, value) {
+async function handleChoice(field, value, button) {
   clearMessage();
   if (field.startsWith("d0_")) {
     const ann = state.current.annotation || {};
@@ -326,8 +326,19 @@ async function handleChoice(field, value) {
     renderItem();
     return;
   }
+  markSelected(button);
+  const ann = state.current.annotation || {};
+  ann[field] = field.startsWith("d") && field !== "d13" ? Number(value) : value;
+  state.current.annotation = ann;
   await saveRatings({ [field]: value });
-  await loadItem(state.currentCode);
+}
+
+function markSelected(button) {
+  if (!button) return;
+  const group = button.closest(".segmented, .flag-row, .choice-row");
+  if (!group) return;
+  group.querySelectorAll("[data-field][data-value]").forEach((peer) => peer.classList.remove("selected"));
+  button.classList.add("selected");
 }
 
 async function saveD0() {
